@@ -161,6 +161,9 @@ file_put_contents($name, $data);
     };
     // timeline.push(instructions_4);
 
+
+
+
     var instructions_5 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">The second rating you will be asked to make is a rating of how unpleasant you feel when you see the photo.</p> ' +
@@ -189,83 +192,75 @@ file_put_contents($name, $data);
     };
     // timeline.push(instructions_8);
 
-    var instructions_9 = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Arousalscale</p>'
-    };
-    // timeline.push(instructions_9);
-
-    var instructions_10 = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Now we will have you rate some pictures for how positive, how negative, and how arousing they make you feel.</p> '
-    };
-    // timeline.push(instructions_10);
-
-    var instructions_11 = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">How pleasant does the picture make you feel?</p> ' 
-    };
-    // timeline.push(instructions_11);
-
-    var instructions_12 = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ' 
-    };
-    // timeline.push(instructions_12);
-
-    var instructions_13 = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> ' 
-    };
-    // timeline.push(instructions_13);
-
-
+    
+    
 
 
     /* START TRAINING TRIAL FOR PARTICIPANTS */
 // delayed discounting task: three variables: 1st= money now, 2nd= money later, 3rd= money days later
 // display the variables on the screen to the participant (write a for loop to iterate through)
     //  variables for practice condition
-    let practiceHard = [1.78,2.68,3.58,4.12];
-    let practiceEasy = [1,1,1,1];
-    let practiceProbability = [50,12,50,88];
-  // this is where I put the text for the page
-  // we create a new array and we use a for loop to add 4 practice items to the array. at the same time we are also looping through the variables that we assigned from 281-283.
-    var practice_prompt_array = [];
-    for (var i = 0; i <= 3; i++){
-      practice_prompt_array.push('<p style="color:white;">Press the <u><strong>'+EasyKey_uCase+'</strong></u> key. </p> ' +
-      '<p style="color:white;">Easy is worth:    </p> ' +
-      '<p style="color:white;"> '+practiceEasy[i]+'   </p> ' +
-      '<p style="color:white;">Hard is worth:    </p> ' +
-      '<p style="color:white;"> '+practiceHard[i]+'    </p> ' +
-      '<p style="color:white;"> The probability of winning is ' +practiceProbability[i]+'%.   </p> ' +
-      '<p style="color:white;">Ready?    </p> ' +
-      '<p style="color:white;">Push the <u><strong>'+EasyKey_uCase+'</strong></u> key until the bar fills up.   </p>');
-      
+    const positive = ['8312','4601','4622','5836','1710','8499','8185','8492']
+    const neutral = ['7000', '7175', '7187', '7547', '5395', '7017', '7010', '2190']
+    const negative = ['7011', '9445', '2751', '2710', '9910', '9183', '9921', '3005.1']
+
+
+    let positive_stimuli = [];
+    for (let i = 0; i < positive.length ; i++){
+      positive_stimuli.push("stim" + positive[i] + ".bmp");
+      // console.log(original_stimuli[i]);
     }
+
+    let neutral_stimuli = [];
+    for (let i = 0; i < neutral.length ; i++){
+      neutral_stimuli.push("stim" + neutral[i] + ".bmp");
+      // console.log(original_stimuli[i]);
+    }
+
+    let negative_stimuli = [];
+    for (let i = 0; i < negative.length ; i++){
+      negative_stimuli.push("stim" + negative[i] + ".bmp");
+      // console.log(inverted_stimuli[i]);
+    }
+
   
   
 
 
     
   
-// this is where I call each item from the array above
-    var practice_prompt_stimuli = [
-    {stimulus: practice_prompt_array[0], data: {test_part: 'practice', correct_response: ','}},
-    {stimulus: practice_prompt_array[1], data: {test_part: 'practice', correct_response: ','}},  
-    {stimulus: practice_prompt_array[2], data: {test_part: 'practice', correct_response: '.'}},  
-    {stimulus:practice_prompt_array[3], data: {test_part: 'practice', correct_response: '.'}},
-    ]
-    
-    // var practice_prompt_array = [];
-    // for (var i = 1; i <= 4; i++){
-    //   practice_prompt_array.push('<p style="color:white;">Press the <u><strong>'+EasyKey_uCase+'</strong></u> key. </p> ' +
-    //   '<p style="color:white;">Easy is worth:    </p> ' +
-    //   '<p style="color:white;"> $1.    </p> ' +
-    //   '<p style="color:white;">Ready?    </p> ' +
-    //   '<p style="color:white;">Push the <u><strong>'+EasyKey_uCase+'</strong></u> key until the bar fills up.   </p>');
-      
-    // }
+    let full_stim = [
+
+{stimulus: positive_stimuli[0], data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[1], data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[2], data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[3], data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[4], data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[5], data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[6], data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[7], data: {test_part: 'positive', correct_response: '1'}},
+
+{stimulus: neutral_stimuli[0], data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[1], data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[2], data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[3], data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[4], data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[5], data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[6], data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[7], data: {test_part: 'neutral', correct_response: '1'}},
+
+{stimulus: negative_stimuli[0], data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[1], data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[2], data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[3], data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[4], data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[5], data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[6], data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[7], data: {test_part: 'negative', correct_response: '1'}},
+
+]
+
+let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled array no repeats
    
 
     var fixation = {
@@ -287,11 +282,65 @@ file_put_contents($name, $data);
         
       }
     }
+
+    var instructions_9 = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">Arousalscale</p>'
+    };
+    // timeline.push(instructions_9);
+
+    var instructions_10 = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">Now we will have you rate some pictures for how positive, how negative, and how arousing they make you feel.</p> '
+    };
+    // timeline.push(instructions_10);
+
+
+
+
+
+    var prompt_pleasant = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">How pleasant does the picture make you feel?</p> ' 
+    };
+    // timeline.push(prompt_pleasant);
+
+    var prompt_unpleasant = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ' 
+    };
+    // timeline.push(prompt_unpleasant);
+
+    var prompt_arousal = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> ' 
+    };
+    // timeline.push(prompt_arousal);
+    
+
+    var response_pleasant = {
+      type: "survey-likert",
+      stimulus: '<p style="color:white;">How pleasant does the picture make you feel?</p> ' 
+    };
+    // timeline.push(response_pleasant);
+
+    var response_unpleasant = {
+      type: "survey-likert",
+      stimulus: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ' 
+    };
+    // timeline.push(response_unpleasant);
+
+    var response_arousal = {
+      type: "survey-likert",
+      stimulus: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> ' 
+    };
+    // timeline.push(response_arousal);
+
 // this is where the procedure loops over the timeline property below. the timeline variables are the stimuli.
-    var practice_procedure = {
-      timeline: [fixation, trial_prompt],
-      timeline_variables: practice_prompt_stimuli,
-      randomize_order: false
+    var procedure = {
+      timeline: [fixation, prompt_pleasant, response_pleasant, prompt_unpleasant, response_unpleasant, prompt_arousal, response_arousal],
+      timeline_variables: full_stim_shuffle,
+      //randomize_order: false
     }
   
     // horizontal progress bar
@@ -302,7 +351,7 @@ file_put_contents($name, $data);
 //   </div>
 // </div> 
 
-    // timeline.push(practice_procedure);
+    timeline.push(procedure);
     var end_of_trial = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">You completed the task.   </p> ' +
@@ -318,235 +367,6 @@ file_put_contents($name, $data);
     // timeline.push(end_of_trial)
 
     /* END TRAINING TRIAL FOR PARTICIPANTS */
-
-    // this is where the real trials begin with sheet 1 variables
-  
-
-    let procedure = ["Lose",	"Lose",	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Win", 	"Win", 	"Win", 	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Lose",	"Win", 	"Win", 	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Lose",	"Win", 	"Win", 	"Win", 	"Lose",	"Lose",	"Lose",	"Win", 	"Lose",	"Win", 	"Win", 	"Win", 	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Lose",	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Lose",	"Win", 	"Win", 	"Win", 	"Win", 	"Lose",	"Lose",	"Win", 	"Lose",	"Lose",	"Win", 	"Lose",	"Lose",	"Win", 	"Win", 	"Lose",	"Win", 	"Win", 	"Win", 	"Lose",	"Win", 	"Win", 	"Lose",	"Win", 	"Lose",	"Lose",	"Win", 	"Lose",	"Win", 	"Win", 	"Win", 	"Win", 	"Win", 	"Lose",	"Lose",	"Win", 	"Lose",	"Win", 	"Lose",	"Lose"];
-    
-    let hardAmount = [3.04,	1.42,	2.86,	3.22,	1.78,	1.96,	2.68,	1.78,	2.14,	2.50,	3.94,	2.32,	2.14,	1.42,	3.04,	1.24,	3.58,	2.32,	4.12,	4.12,	2.50,	3.94,	3.22,	4.12,	2.68,	3.40,	2.50,	3.76,	1.78,	1.42,	3.04,	3.40,	3.22,	1.24,	3.58,	3.76,	3.76,	2.14,	3.58,	1.60,	2.86,	2.68,	1.24,	1.96,	1.60,	2.86,	2.32,	3.40,	3.94,	1.96,	1.60,	2.59,	3.49,	3.85,	4.21,	4.03,	3.67,	3.67,	4.03,	2.77,	1.51,	1.87,	4.21,	1.33,	1.87,	1.51,	3.13,	3.13,	3.85,	2.59,	4.21,	2.95,	2.05,	2.77,	3.49,	1.87,	2.95,	3.13,	3.67,	1.69,	2.59,	2.41,	1.33,	3.31,	2.23,	2.23,	4.03,	1.33,	2.41,	3.31,	2.23,	3.85, 2.41,	3.31,	2.77,	2.05,	1.69,	3.49,	1.69,	2.95,	2.05,	1.51];
-    
-    let easyAmount = [1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,];
-    
-    let testProbability = [12,	50,	50,	88,	12,	88,	50,	88,	50,	12,	50,	50,	12,	88,	88,	12,	88,	12,	50,	12,	50,	12,	12,	88,	88,	50,	88,	50,	50,	12,	50,	88,	50,	88,	12,	12,	88,	88,	50,	88,	12,	12,	50,	50,	12,	88,	88,	12,	88,	12,	50,	12,	88,	50,	88,	12,	50,	12,	88,	50,	88,	88,	50,	50,	50,	50,	88,	12,	12,	88,	12,	12,	88,	12,	50,	12,	50,	50,	88,	88,	50,	12,	88,	50,	12,	50,	50,	12,	88,	12,	88,	88,	50,	88,	88,	12,	12,	12,	50,	88,	50,	12,];
-
-  var begin_experiment = {
-    type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Get your hands in position and press any key to start the real trials.  </p> ' ,
-      
-  }
-  var test_prompt_array = []; // change to selection_array
-    for (var i = 0; i <= 102; i++){
-      test_prompt_array.push('<p style="color:white;">Press the <u><strong>'+EasyKey_uCase+'</strong></u> key. </p> ' +
-      '<p style="color:white;">Easy is worth:    </p> ' +
-      '<p style="color:white;"> '+ easyAmount[i]+'   </p> ' +
-      '<p style="color:white;">Hard is worth:    </p> ' +
-      '<p style="color:white;"> '+ hardAmount[i]+'    </p> ' +
-      '<p style="color:white;"> The probability of winning is ' +testProbability[i]+'%.   </p> ' )
-      
-      
-    }
-   
-    let buttonPressingEasy_array = [];
-    for (var i = 0; i <= 102; i++){
-      buttonPressingEasy_array.push( '<p style="color:white;">Press the <u><strong>'+EasyKey_uCase+'</strong></u> key until the bar fills up.   </p>');
-    }
-
-    let buttonPressingHard_array = [];
-      for (var i = 0; i <= 102; i++){
-        buttonPressingHard_array.push ('<p style="color:white;">Press the <u><strong>'+HardKey_uCase+'</strong></u> key until the bar fills up.   </p>');
-      }
-    
-      // let progressBar= '<div class="w3-container"><div class="w3-light-grey"><div class="w3-grey" style="height:24px; width:50%;"></div></div></div></div></div>'
-    let progressBar ='<div class="w3-container"><h2>Progress Bar Width</h2><p>Change the width of the progress bar with the width property:</p><div class="w3-light-grey"><div class="w3-grey" id="keyBar" style="height:24px;width:25%"></div></div><br><div class="w3-light-grey"><div class="w3-grey" style="height:24px;width:50%"></div></div><br><div class="w3-light-grey"><div class="w3-grey" style="height:24px;width:75%"></div></div></div>';
-      
-      var test_prompt_stimuli = [
-    {stimulus: test_prompt_array[0], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}}, // added a new property to the object (progress)
-    {stimulus: test_prompt_array[1], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}}, 
-    {stimulus: test_prompt_array[2], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[3], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[4], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[5], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[6], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[8], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[9], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[10], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[11], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[12], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[14], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[15], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[16], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[17], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[18], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[19], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[20], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[21], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[22], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[23], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[24], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[25], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[26], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[27], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[28], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[29], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[30], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[31], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[32], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[33], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[34], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[35], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[36], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[37], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[38], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[39], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[40], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[41], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[42], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[43], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[44], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[45], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[46], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[47], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[48], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[49], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[50], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[51], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[52], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[53], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[54], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[55], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[56], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[57], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[58], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[59], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[60], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[61], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[62], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[63], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[64], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[65], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[66], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[67], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[68], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[69], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[70], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[71], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[72], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[73], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[74], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[75], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[76], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[77], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[78], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[79], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[80], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[81], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[82], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[83], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[84], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[85], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[86], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[87], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[88], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[89], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[90], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[91], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[92], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[93], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[94], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[95], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[96], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[97], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[98], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    {stimulus: test_prompt_array[99], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},  
-    {stimulus: test_prompt_array[100], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},  
-    {stimulus: test_prompt_array[101], progress: progressBar, data: {test_part: 'experiment', correct_response: '.'}},
-    {stimulus: test_prompt_array[102], progress: progressBar, data: {test_part: 'experiment', correct_response: ','}},
-    ]
-
-
-    var fixation = {
-      type: 'html-keyboard-response',
-      stimulus: '<div style="color:white; font-size:60px;">+</div>',
-      choices: jsPsych.NO_KEYS,
-      trial_duration: 1000,
-    }
-
-    var ready = {
-      type: 'html-keyboard-response',
-      stimulus:'<p style="color:white;">Ready? </p> ',
-      choices: jsPsych.NO_KEYS,
-      trial_duration: 1000,
-    }
-
-    var selection = {
-      type: 'html-keyboard-response',
-      choices: jsPsych.NO_KEYS,
-      trial_duration: 1000,
-      stimulus:jsPsych.timelineVariable('stimulus'),
-    }    
-
-    var completion = {
-      type: 'html-keyboard-response',
-      stimulus:'<p style="color:white;">completion </p> ',
-      choices: jsPsych.NO_KEYS,
-      trial_duration: 1000,
-    }
-
-    var feedback = {
-      type: 'html-keyboard-response',
-      stimulus:'<p style="color:white;"> feedback </p> ',
-      choices: jsPsych.NO_KEYS,
-      trial_duration: 1000, 
-    }
-  
-    var buttonPressingHard = {
-    type: "html-keyboard-response",
-    //prompt: '<p style="color:white;" id="hardTimer">00: </p>',
-    prompt: '<input type="text" onkeypress="move()">',
-    choices: [HardKey_uCase.toLowerCase()],
-    response_ends_trial: false,
-    trial_duration: 22000,
-    data: jsPsych.timelineVariable('data'),
-    stimulus: jsPsych.timelineVariable('progress'),    
-    // on_start: hardTimer(),
-    // on_start: move(),
-  }
-  var buttonPressingEasy= {
-    type: "html-keyboard-response",
-    prompt: '<p style="color:white;" id="easyTimer">00: </p>',
-    choices: [EasyKey_uCase.toLowerCase()],
-    response_ends_trial: false,
-    trial_duration: 8000,
-    data: jsPsych.timelineVariable('data'),
-    stimulus: jsPsych.timelineVariable('progress'), 
-    on_start: easyTimer(),
-  }
-
-var test_procedure = {
-      timeline: [fixation, selection, ready, buttonPressingHard, completion, feedback],
-      timeline_variables: test_prompt_stimuli,
-      randomize_order: false
-    }
-
-    timeline.push(test_procedure);
-
-/*   var debrief_block = {
-      type: "html-keyboard-response",
-      stimulus: function(){
-
-        var trials = jsPsych.data.get().filter({test_part: 'test'});
-        var correct_trials = trials.filter({correct: true});
-        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
-        var rt = Math.round(correct_trials.select('rt').mean());
-
-        return "<p style='color:white;'> You responded correctly on "+accuracy+"% of the trials. </p>"+
-        "<p style='color:white;'>Your average response time was "+rt+"ms.</p>"+
-        "<p style='color:white;'>Press any key to complete the experiment. Thank you!</p>";
-      }
-    }; 
-
-     timeline.push(debrief_block); */
 
     // COMPLETION MESSAGE: Completed Classification Phase
     var link = "https://survey.az1.qualtrics.com/SE/?SID=SV_9uARDX1aXEXq1pP&Q_JFE=0&workerId="
