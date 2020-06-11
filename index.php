@@ -131,135 +131,93 @@ file_put_contents($name, $data);
     timeline.push(welcome);
 
     /* define instructions trial */
-    var instructions_1 = {
+    let instructions_1 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">You are going to play the lever-press game. </p>' +
-        '<p style="color:white;">The game will consist of a series of individual trials. </p>' +
-        '<p style="color:white;">The length of time required to complete each trial will depend upon decisions you make during that trial.  </p>'+
-        '<p style="color:white;">You will play the game for exactly <strong>'+ MinutesToPlay + '</strong> minutes, after which you will be asked to stop.  </p>'+
-        '<p style="color:white;"> Even if you choose to go through trials quickly, you will still play for the same total amount of time.  </p>'+
-        '<p style="color:white;"> Press the space bar to continue.</p>',
-       
-      choices: [' '],
+      stimulus: '<p style="color:white;">You will now see a series of pictures. </p>' +
+        '<p style="color:white;">Some of the pictures will be positive, like pictures of babies.   </p>' +
+        '<p style="color:white;">Some will be negative, like pictures of sharks or sad people. </p>'+
+        '<p style="color:white;"> Some will be neutral, like pictures of a clock or desk</p>'
     };
     // timeline.push(instructions_1);
 
-    var instructions_2 = {
+    let instructions_2 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">For each trial, you will have an opportunity to win some money.</p> ' +
-          '<p style="color:white;">In order to be eligible to win money on a given trial, you must first complete a task.</p> ' + 
-          '<p style="color:white;">The task involves making repeated button presses within a certain amount of time. </p>' +
-          '<p style="color:white;">For each trial you can choose to complete an Easy task, or a Hard task. </p> '+
-          '<p style="color:white;">Press the space bar to continue.</p>',
-      choices: [32],
-      post_trial_gap: 2000
+      stimulus: '<p style="color:white;">We want you to tell us how each picture makes you feel.</p> ' +
+          '<p style="color:white;">You will make 3 ratings for each picture.</p> '
     };
     // timeline.push(instructions_2);
 
-    var instructions_3 = {
+    let instructions_3 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">If you choose the Easy task, you will need to press the <u><strong>'+EasyKey_uCase+'</strong></u> key with your <u><strong>'+handedness.toUpperCase()+'</strong></u> index finger approximately 30 times within 7 seconds. </p> ' +
-      '<p style="color:white;">You are eligible to win $1.00 for each time you complete the Easy task. </p> ' + 
-      '<p style="color:white;">Press the space bar to continue. </p>' ,
-      choices: [32],
-      post_trial_gap: 2000,
-      
+      stimulus: '<p style="color:white;">The first rating you will be asked to make is a rating of how pleasant you feel when you see the photo.</p> ' +
+      '<p style="color:white;">"Pleasantness" refers to how happy or good you feel when you see each photo and how much you like looking at it.</p> '
     };
 
     // timeline.push(instructions_3);
     
-    var instructions_4 = {
+    let instructions_4 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">If you choose the Hard task, you will need to press the <u><strong>'+HardKey_uCase+'</strong></u> key with the pinky finger of your <u><strong>'+antihandedness+'</strong></u> hand approximately 100 times within 21 seconds.  </p> ' +
-      '<p style="color:white;">For each trial, the amount that you are eligible to win if you complete the Hard task will change.  </p> ' + 
-      '<p style="color:white;">The amount that the Hard task is worth on a given trial will be presented to you at the beginning of that trial.  </p>' +
-      '<p style="color:white;">Hard trials range from $1.20 to around $4.00. </p>' + 
-      '<p style="color:white;">Press the space bar to continue. </p>',
-      choices: [32],
-      post_trial_gap: 2000,
+      stimulus: '<p style="color:white;">Pleasentness rating scale </p> '
     };
     // timeline.push(instructions_4);
 
     var instructions_5 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Completing the Easy or Hard task makes you eligible to receive money on that trial, but completion alone does NOT guarantee that you will win money.  </p> ' +
-      '<p style="color:white;">Press the space bar to continue.  </p> ' , 
-     
-      choices: [32],
-      post_trial_gap: 2000,
+      stimulus: '<p style="color:white;">The second rating you will be asked to make is a rating of how unpleasant you feel when you see the photo.</p> ' +
+                '<p style="color:white;">"Unpleasantness" refers to how bad or unhappy you feel when you see each photo.</p>'
     };
     // timeline.push(instructions_5);
 
     var instructions_6 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Some trials are less likely to give you money than others. </p> ' +
-      '<p style="color:white;">To help you decide which trials are more likely to give you money, you will be told the probability that you WILL receive money IF you complete the task at the beginning of each trial.   </p> ' +
-      '<p style="color:white;">Press the space bar to continue. </p>',
-
-      choices: [32],
-      post_trial_gap: 2000,
+      stimulus: '<p style="color:white;">Unpleasentes rating scale</p> '
     };
     // timeline.push(instructions_6);
 
     var instructions_7 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Some trials you will have an 88% receiving money if you complete the task.  </p> ' +
-      '<p style="color:white;">Some trials you will have a 50% chance receiving money if you complete the task.   </p> ' +
-      '<p style="color:white;">Some trials you will have a 12% chance of receiving money if you complete the task.   </p> ' +
-      '<p style="color:white;">Press the space bar to continue. </p>',
-      
-      choices: [32],
-      post_trial_gap: 2000,
+      stimulus: '<p style="color:white;">You should decide how to rate each photo on the basis of how pleasant or unpleasant you feel when you see it.</p> ' +
+      '<p style="color:white;">There are no "right" or "wrong" answers for rating the photos.</p> ' +
+      '<p Just go by how much you like or dislike each one.</p> '
     };
     // timeline.push(instructions_7);
 
     var instructions_8 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">At the beginning of each trial, you will have a choice between the Hard task and the Easy task.   </p> ' +
-      '<p style="color:white;">The amount you are eligible to win on the Hard task, and the probability of winning will be presented at the beginning of each trial.   </p> ' +
-      '<p style="color:white;">To choose the Hard task, press the <u><strong>'+HardKey_uCase+'</strong></u> key.  </p> ' +
-      '<p style="color:white;">To choose the Easy task, press the <u><strong>'+EasyKey_uCase+'</strong></u> key.  </p> ' +
-      '<p style="color:white;">Press the space bar to continue. </p>',
-      
-      choices: [32],
-      post_trial_gap: 2000,
+      stimulus: '<p style="color:white;">The third rating you will be asked to make is a rating of how arousing or exciting each picture makes you feel.</p> ' +
+      '<p style="color:white;">"Arousing" refers to how excited or keyed-up the photo makes you feel. Some of the pictures will be highly arousing and some will make you feel more calm or sleepy.</p> '
     };
     // timeline.push(instructions_8);
 
     var instructions_9 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">We cannot pay you based on every choice you make.  </p> ' +
-      '<p style="color:white;">However, at the end of the experiment, we will randomly select 4 trials (2 from each session) and add them to your payment.    </p> ' +
-      '<p style="color:white;">You won’t know which trials get added to your payment.   </p> ' +
-      '<p style="color:white;">Therefore, while the decisions you make on only four trials WILL count, any trial COULD count.  </p> ' +
-      '<p style="color:white;">Press the space bar to continue. </p>',
-      
-      choices: [32],
-      post_trial_gap: 2000,
+      stimulus: '<p style="color:white;">Arousalscale</p>'
     };
     // timeline.push(instructions_9);
 
     var instructions_10 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Also keep in mind that you only have <strong>'+ MinutesToPlay + '</strong> minutes to get through the game, and the Hard task takes about twice as long as the Easy task.   </p> ' +
-      '<p style="color:white;">If you choose all Easy tasks, you will probably get through approximately 40 trials, if you choose all Hard tasks, you will probably get through around 20 trials, so choose your Hard tasks carefully!    </p> ' +
-      '<p style="color:white;">Now you are ready to play the game.    </p> ' +
-      '<p style="color:white;">You will begin with a set of 4 practice trials.    </p> ' +
-      '<p style="color:white;">Press the space bar to start. </p>',
-      
-      choices: [32],
-      post_trial_gap: 2000,
+      stimulus: '<p style="color:white;">Now we will have you rate some pictures for how positive, how negative, and how arousing they make you feel.</p> '
     };
     // timeline.push(instructions_10);
 
     var instructions_11 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Get your hands in position and press any key to start the practice trials. </p> ' ,
-      
-      choices: [32],
-      post_trial_gap: 2000,
+      stimulus: '<p style="color:white;">How pleasant does the picture make you feel?</p> ' 
     };
     // timeline.push(instructions_11);
+
+    var instructions_12 = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ' 
+    };
+    // timeline.push(instructions_12);
+
+    var instructions_13 = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> ' 
+    };
+    // timeline.push(instructions_13);
 
 
 
