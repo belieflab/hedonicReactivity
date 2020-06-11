@@ -1,0 +1,19 @@
+    var scale_1 = [
+      "<div style='color:white;'>1 <br />(Not confident)</div>", 
+      "<div style='color:white;'>2</div>", 
+      "<div style='color:white;'>3</div>", 
+      "<div style='color:white;'>4</div>", 
+      "<div style='color:white;'>5</div>", 
+      "<div style='color:white;'>6</div>", 
+      "<div style='color:white;'>7 <br />(Very confident)</div>", 
+  
+];
+
+var likert_train_page = {
+  type: 'survey-likert',
+  questions: [
+    {prompt: "<div style='color:white;'>How confident were you?</div>", labels: scale_1, required: true}
+  ],
+  scale_width: 750,
+  data: jsPsych.data.get().select('responses')
+}
