@@ -18,6 +18,7 @@ file_put_contents($name, $data);
     <script src="js/handedness.js"></script>
     <script src="jsPsych/jspsych.js"></script>
     <script src="jsPsych/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jsPsych/plugins/jspsych-survey-likert.js"></script>
     <script src="jsPsych/plugins/jspsych-image-keyboard-response.js"></script>
     <link href="jsPsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -107,26 +108,12 @@ file_put_contents($name, $data);
 
     /* create timeline */
     var timeline = [];
-    // MinutesToPlay is the user's length of time on the experiment
-    let MinutesToPlay = parseInt(prompt("Enter time in minutes to play the game: "));
-
-    // Ask participant handedness
-    let handedness =prompt("Are you right or left handed?");
-    
-    //const handedness=right;
-    let antihandedness;
-    let EasyKey_uCase; 
-    let HardKey_uCase;
-  
-    // run script to ask participant how much time they would like to play for
-    playTime();
 
 // let MinutesToPlay = 20;
     /* define welcome message trial */
     var welcome = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Welcome to the experiment! Press any key to begin.</p>',
-      on_load:  checkHandedness (),
+      stimulus: '<p style="color:white;">Welcome to the experiment! Press any key to begin.</p>'
     };
     timeline.push(welcome);
 
@@ -207,19 +194,19 @@ file_put_contents($name, $data);
 
     let positive_stimuli = [];
     for (let i = 0; i < positive.length ; i++){
-      positive_stimuli.push("stim" + positive[i] + ".bmp");
+      positive_stimuli.push("stim/" + positive[i] + ".bmp");
       // console.log(original_stimuli[i]);
     }
 
     let neutral_stimuli = [];
     for (let i = 0; i < neutral.length ; i++){
-      neutral_stimuli.push("stim" + neutral[i] + ".bmp");
+      neutral_stimuli.push("stim/" + neutral[i] + ".bmp");
       // console.log(original_stimuli[i]);
     }
 
     let negative_stimuli = [];
     for (let i = 0; i < negative.length ; i++){
-      negative_stimuli.push("stim" + negative[i] + ".bmp");
+      negative_stimuli.push("stim/" + negative[i] + ".bmp");
       // console.log(inverted_stimuli[i]);
     }
 
@@ -271,18 +258,6 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       data: {test_part: 'fixation'}
     }
 
-    var trial_prompt = {
-      type: "html-keyboard-response",
-      stimulus: jsPsych.timelineVariable('stimulus'), //train_stimuli_array, //jsPsych.timelineVariable('stimulus'),
-      choices: [EasyKey_uCase.toLowerCase(), HardKey_uCase.toLowerCase()],
-      data: jsPsych.timelineVariable('data'),
-      on_finish: function(data){
-        data.C1_train = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
-        //data.c1 = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-        
-      }
-    }
-
     var instructions_9 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">Arousalscale</p>'
@@ -295,44 +270,87 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
     };
     // timeline.push(instructions_10);
 
+    var scale_pleasant = [
+      "<div style='color:white;'>1 <br />Not at all</div>", 
+      "<div style='color:white;'>2</div>", 
+      "<div style='color:white;'>3 <br/> Somewhat pleasant</div>", 
+      "<div style='color:white;'>4</div>", 
+      "<div style='color:white;'>5 <br/> Extremely plesant</div>"
+];
+  var scale_unpleasant = [
+        "<div style='color:white;'>1 <br />Not at all</div>", 
+        "<div style='color:white;'>2</div>", 
+        "<div style='color:white;'>3 <br/> Somewhat unpleasant</div>", 
+        "<div style='color:white;'>4</div>", 
+        "<div style='color:white;'>5 <br/> Extremely unplesant</div>"
+  ];
 
+  var scale_arousal = [
+        "<div style='color:white;'>1 <br />Extremely calm</div>", 
+        "<div style='color:white;'>2 <br/>Somewhat calm</div>", 
+        "<div style='color:white;'>3 <br/> Neutral</div>", 
+        "<div style='color:white;'>4 <br/> Somewhat excited</div>", 
+        "<div style='color:white;'>5 <br/> Extremely excited</div>"
+    
+  ];  
 
 
 
     var prompt_pleasant = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">How pleasant does the picture make you feel?</p> ' 
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      prompt: '<p style="color:white;">How pleasant does the picture make you feel?</p> ' 
     };
     // timeline.push(prompt_pleasant);
 
     var prompt_unpleasant = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ' 
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      prompt: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ' 
     };
     // timeline.push(prompt_unpleasant);
 
     var prompt_arousal = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> ' 
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      prompt: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> '
     };
     // timeline.push(prompt_arousal);
     
 
     var response_pleasant = {
       type: "survey-likert",
-      stimulus: '<p style="color:white;">How pleasant does the picture make you feel?</p> ' 
+      prompt: '<p style="color:white;">How pleasant does the picture make you feel?</p> ',
+      // stimulus: jsPsych.timelineVariable('stimulus'),
+      questions: [
+      {prompt: "<div style='color:white;'>How pleasant does the picture make you feel?</div>", labels: scale_pleasant, required: true}
+    ],
+    scale_width: 750,
+    data: jsPsych.data.get().select('responses')
     };
     // timeline.push(response_pleasant);
 
     var response_unpleasant = {
       type: "survey-likert",
-      stimulus: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ' 
+      prompt: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ',
+      // stimulus: jsPsych.timelineVariable('stimulus'),
+      questions: [
+      {prompt: "<div style='color:white;'>How unpleasant does the picture make you feel?</div>", labels: scale_unpleasant, required: true}
+    ],
+    scale_width: 750,
+    data: jsPsych.data.get().select('responses')
     };
     // timeline.push(response_unpleasant);
 
     var response_arousal = {
       type: "survey-likert",
-      stimulus: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> ' 
+      prompt: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> ',
+      // stimulus: jsPsych.timelineVariable('stimulus'),
+      questions: [
+      {prompt: "<div style='color:white;'>How arousing/exciting does the picture make you feel?</div>", labels: scale_arousal, required: true}
+    ],
+    scale_width: 750,
+    data: jsPsych.data.get().select('responses')
     };
     // timeline.push(response_arousal);
 
