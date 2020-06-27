@@ -108,6 +108,18 @@ file_put_contents($name, $data);
 
     /* create timeline */
     var timeline = [];
+    let pleasant_Prompt = '<p style="color:white;">How pleasant does the picture make you feel?</p> '
+    let unpleasant_Prompt = '<p style="color:white;">How unpleasant does the picture make you feel?</p> '
+    let arousal_Prompt = '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> '
+
+    let pleasantPrompt = '<p style="color:white;">How pleasant?</p> '
+    let unpleasantPrompt = '<p style="color:white;">How unpleasant?</p> '
+    let arousalPrompt = '<p style="color:white;">How arousing/exciting?</p> '
+
+
+    let pleasantLikert = 'scale/BlankScalePleasant.png'
+    let unpleasantLikert = 'scale/BlankScalePleasant.png'
+    let arousalLikert = 'scale/BlankScalePleasant.png'
 
 // let MinutesToPlay = 20;
     /* define welcome message trial */
@@ -218,32 +230,32 @@ file_put_contents($name, $data);
   
     let full_stim = [
 
-{stimulus: positive_stimuli[0], data: {test_part: 'positive', correct_response: '1'}},
-{stimulus: positive_stimuli[1], data: {test_part: 'positive', correct_response: '1'}},
-{stimulus: positive_stimuli[2], data: {test_part: 'positive', correct_response: '1'}},
-{stimulus: positive_stimuli[3], data: {test_part: 'positive', correct_response: '1'}},
-{stimulus: positive_stimuli[4], data: {test_part: 'positive', correct_response: '1'}},
-{stimulus: positive_stimuli[5], data: {test_part: 'positive', correct_response: '1'}},
-{stimulus: positive_stimuli[6], data: {test_part: 'positive', correct_response: '1'}},
-{stimulus: positive_stimuli[7], data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[0], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[1], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[2], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[3], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[4], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[5], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[6], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'positive', correct_response: '1'}},
+{stimulus: positive_stimuli[7], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'positive', correct_response: '1'}},
 
-{stimulus: neutral_stimuli[0], data: {test_part: 'neutral', correct_response: '1'}},
-{stimulus: neutral_stimuli[1], data: {test_part: 'neutral', correct_response: '1'}},
-{stimulus: neutral_stimuli[2], data: {test_part: 'neutral', correct_response: '1'}},
-{stimulus: neutral_stimuli[3], data: {test_part: 'neutral', correct_response: '1'}},
-{stimulus: neutral_stimuli[4], data: {test_part: 'neutral', correct_response: '1'}},
-{stimulus: neutral_stimuli[5], data: {test_part: 'neutral', correct_response: '1'}},
-{stimulus: neutral_stimuli[6], data: {test_part: 'neutral', correct_response: '1'}},
-{stimulus: neutral_stimuli[7], data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[0], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[1], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[2], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[3], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[4], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[5], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[6], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'neutral', correct_response: '1'}},
+{stimulus: neutral_stimuli[7], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'neutral', correct_response: '1'}},
 
-{stimulus: negative_stimuli[0], data: {test_part: 'negative', correct_response: '1'}},
-{stimulus: negative_stimuli[1], data: {test_part: 'negative', correct_response: '1'}},
-{stimulus: negative_stimuli[2], data: {test_part: 'negative', correct_response: '1'}},
-{stimulus: negative_stimuli[3], data: {test_part: 'negative', correct_response: '1'}},
-{stimulus: negative_stimuli[4], data: {test_part: 'negative', correct_response: '1'}},
-{stimulus: negative_stimuli[5], data: {test_part: 'negative', correct_response: '1'}},
-{stimulus: negative_stimuli[6], data: {test_part: 'negative', correct_response: '1'}},
-{stimulus: negative_stimuli[7], data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[0], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[1], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[2], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[3], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[4], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[5], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[6], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'negative', correct_response: '1'}},
+{stimulus: negative_stimuli[7], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, data: {test_part: 'negative', correct_response: '1'}},
 
 ]
 
@@ -294,63 +306,81 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
     
   ];  
 
-
-
     var prompt_pleasant = {
-      type: "image-keyboard-response",
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      prompt: '<p style="color:white;">How pleasant does the picture make you feel?</p> ' 
+      type: "html-keyboard-response",
+      trial_duration: 2000,
+      prompt: pleasant_Prompt,
+
+      // stimulus: jsPsych.timelineVariable('stimulus'),
+      // stimulus_height: 500,
+      // stimulus_width: 500,
+      
     };
     // timeline.push(prompt_pleasant);
 
     var prompt_unpleasant = {
-      type: "image-keyboard-response",
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      prompt: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ' 
+      type: "html-keyboard-response",
+      trial_duration: 2000,
+      prompt: unpleasant_Prompt,
+      // stimulus: jsPsych.timelineVariable('stimulus'),
+      // stimulus_height: 500,
+      // stimulus_width: 500,
+        
     };
     // timeline.push(prompt_unpleasant);
 
     var prompt_arousal = {
-      type: "image-keyboard-response",
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      prompt: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> '
+      type: "html-keyboard-response",
+      trial_duration: 2000,
+      prompt: arousal_Prompt,
+      // stimulus: jsPsych.timelineVariable('stimulus'),
+      // stimulus_height: 500,
+      // stimulus_width: 500,
+       
     };
     // timeline.push(prompt_arousal);
     
 
     var response_pleasant = {
-      type: "survey-likert",
-      prompt: '<p style="color:white;">How pleasant does the picture make you feel?</p> ',
-      // stimulus: jsPsych.timelineVariable('stimulus'),
-      questions: [
-      {prompt: "<div style='color:white;'>How pleasant does the picture make you feel?</div>", labels: scale_pleasant, required: true}
-    ],
-    scale_width: 750,
-    data: jsPsych.data.get().select('responses')
+      type: "html-keyboard-response",
+      stimulus: function(){
+                var html= jsPsych.timelineVariable('prompt_pleasant', true) +
+                "<img style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+                "<img src='"+jsPsych.timelineVariable('Likert_pleasant', true)+"'>";
+                return html;
+      },
+      
+      
+      choices: ['1','2','3','4','5'],
+      data: jsPsych.data.get().select('responses')
     };
     // timeline.push(response_pleasant);
 
     var response_unpleasant = {
-      type: "survey-likert",
-      prompt: '<p style="color:white;">How unpleasant does the picture make you feel?</p> ',
-      // stimulus: jsPsych.timelineVariable('stimulus'),
-      questions: [
-      {prompt: "<div style='color:white;'>How unpleasant does the picture make you feel?</div>", labels: scale_unpleasant, required: true}
-    ],
-    scale_width: 750,
-    data: jsPsych.data.get().select('responses')
+      type: "html-keyboard-response",
+      stimulus: function(){
+                var html= jsPsych.timelineVariable('prompt_unpleasant', true) +
+                "<img style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+                "<img src='"+jsPsych.timelineVariable('Likert_unpleasant', true)+"'>";
+                return html;
+      },
+      
+      choices: ['1','2','3','4','5'],
+      data: jsPsych.data.get().select('responses')
     };
     // timeline.push(response_unpleasant);
 
     var response_arousal = {
-      type: "survey-likert",
-      prompt: '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> ',
-      // stimulus: jsPsych.timelineVariable('stimulus'),
-      questions: [
-      {prompt: "<div style='color:white;'>How arousing/exciting does the picture make you feel?</div>", labels: scale_arousal, required: true}
-    ],
-    scale_width: 750,
-    data: jsPsych.data.get().select('responses')
+      type: "html-keyboard-response",
+      stimulus: function(){
+                var html= jsPsych.timelineVariable('prompt_arousal', true) +
+                "<img style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+                "<img src='"+jsPsych.timelineVariable('Likert_arousal', true)+"'>";
+                return html;
+      },
+      
+      choices: ['1','2','3','4','5'],
+      data: jsPsych.data.get().select('responses')
     };
     // timeline.push(response_arousal);
 
