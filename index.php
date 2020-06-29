@@ -120,9 +120,9 @@ file_put_contents($name, $data);
     let unpleasantLikert = 'scale/BlankScaleUnpleasant.png'
     let arousalLikert = 'scale/BlankScaleArousal.png'
 
-    let pleasantResponse = []
-    let unpleasantResponse = []
-    let arousalResponse = []
+    let pleasantResponse = [];
+    let unpleasantResponse = [];
+    let arousalResponse = [];
 
 // let MinutesToPlay = 20;
     /* define welcome message trial */
@@ -360,46 +360,46 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       response_ends_trial: true,
       data: jsPsych.data.get().select('responses'),
       on_finish: function(data){
-      // switch(){
-      //   case data.key_press == '1': 
-      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale1.jpg")
-      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale1.jpg"})
-      //     break;
-      //   case data.key_press == '2': 
-      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale2.jpg")
-      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale2.jpg"})
-      //     break;
-      //   case data.key_press == '3':
-      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale3.jpg")
-      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale3.jpg"})
-      //     break;
-      //   case data.key_press == '4':
-      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale4.jpg")
-      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale4.jpg"})
-      //     break;
-      //   case data.key_press == '5':
-      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale5.jpg")
-      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale5.jpg"})
-      //     break;
-      //   default:
-      // }
-
-      if (data.key_press == 49){
-        pleasantResponse.pop()
-        pleasantResponse.push("scale/PleasantScale1.jpg")
-      } else if (data.key_press == 50){
-        pleasantResponse.pop()
-        pleasantResponse.push("scale/PleasantScale2.jpg")
-      } else if (data.key_press == 51){
-        pleasantResponse.pop()
-        pleasantResponse.push("scale/PleasantScale3.jpg")
-      } else if (data.key_press == 52){
-        pleasantResponse.pop()
-        pleasantResponse.push("scale/PleasantScale4.jpg")
-      } else if (data.key_press == 53){
-        pleasantResponse.pop()
-        pleasantResponse.push("scale/PleasantScale5.jpg")
+      switch(data.key_press){
+        case 49: 
+          pleasantResponse.pop()
+          pleasantResponse.push("scale/PleasantScale1.jpg")
+          break;
+        case 50: 
+          pleasantResponse.pop()
+          pleasantResponse.push("scale/PleasantScale2.jpg")
+          break;
+        case 51:
+          pleasantResponse.pop()
+          pleasantResponse.push("scale/PleasantScale3.jpg")
+          break;
+        case 52:
+          pleasantResponse.pop()
+          pleasantResponse.push("scale/PleasantScale4.jpg")
+          break;
+        case 53:
+          pleasantResponse.pop()
+          pleasantResponse.push("scale/PleasantScale5.jpg")
+          break;
+        default:
       }
+
+      // if (data.key_press == 49){
+      //   pleasantResponse.pop()
+      //   pleasantResponse.push("scale/PleasantScale1.jpg")
+      // } else if (data.key_press == 50){
+      //   pleasantResponse.pop()
+      //   pleasantResponse.push("scale/PleasantScale2.jpg")
+      // } else if (data.key_press == 51){
+      //   pleasantResponse.pop()
+      //   pleasantResponse.push("scale/PleasantScale3.jpg")
+      // } else if (data.key_press == 52){
+      //   pleasantResponse.pop()
+      //   pleasantResponse.push("scale/PleasantScale4.jpg")
+      // } else if (data.key_press == 53){
+      //   pleasantResponse.pop()
+      //   pleasantResponse.push("scale/PleasantScale5.jpg")
+      // }
         
 
       },
@@ -412,7 +412,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       stimulus: function(){
                 var html= jsPsych.timelineVariable('prompt_pleasant', true) +
                 "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
-                "<img id='pleasant' class='center' src='"+jsPsych.timelineVariable('feedback_pleasant', true)+"'>";
+                "<img class='center' src='"+jsPsych.timelineVariable('feedback_pleasant', true)+"'>";
                 return html;
       },
       // choices: ['1','2','3','4','5'],
@@ -460,7 +460,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       stimulus: function(){
                 var html= jsPsych.timelineVariable('prompt_unpleasant', true) +
                 "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
-                "<img id='pleasant' class='center' src='"+jsPsych.timelineVariable('feedback_unpleasant', true)+"'>";
+                "<img class='center' src='"+jsPsych.timelineVariable('feedback_unpleasant', true)+"'>";
                 return html;
       },
       // choices: ['1','2','3','4','5'],
@@ -508,7 +508,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       stimulus: function(){
                 var html= jsPsych.timelineVariable('prompt_arousal', true) +
                 "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
-                "<img id='pleasant' class='center' src='"+jsPsych.timelineVariable('feedback_arousal', true)+"'>";
+                "<img class='center' src='"+jsPsych.timelineVariable('feedback_arousal', true)+"'>";
                 return html;
       },
       // choices: ['1','2','3','4','5'],
@@ -596,6 +596,7 @@ function saveData(name, data){
       jsPsych.init({
         timeline: timeline,
         show_progress_bar: true,
+        preload_images: [positive_stimuli, negative_stimuli, neutral_stimuli],
         on_finish: function(){ saveData("hedonic-reactivity_" + workerID, jsPsych.data.get().csv()); }
         //on_finish: function(){
           //jsPsych.data.get().filter([{test_part: 'test'},{test_part: 'prediction'},{test_part: 'c2_test'}]).localSave("csv", `test-self-deception-data.csv`);
