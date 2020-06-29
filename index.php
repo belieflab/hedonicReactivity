@@ -27,7 +27,6 @@ file_put_contents($name, $data);
   <body  
   style="background-color:black;">  
   
-  <div class="loading centeredDiv">
     <h1 class="loading">Loading...</h1>
   </div>
   <div id="consentHolder" class="consent centeredDiv">
@@ -449,7 +448,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
           unpleasantResponse.push("scale/UnpleasantScale4.jpg")
       } else if (data.key_press == 53){
          unpleasantResponse.pop()
-          unpleasantResponse.push("scale/UnleasantScale5.jpg")
+          unpleasantResponse.push("scale/UnpleasantScale5.jpg")
       }
         
       },
