@@ -105,7 +105,7 @@ file_put_contents($name, $data);
   
   <script>
    
-
+    workerID = prompt("Enter subject Id")
     /* create timeline */
     var timeline = [];
     let pleasant_Prompt = '<p style="color:white;">How pleasant does the picture make you feel?</p> '
@@ -118,8 +118,8 @@ file_put_contents($name, $data);
 
 
     let pleasantLikert = 'scale/BlankScalePleasant.png'
-    let unpleasantLikert = 'scale/BlankScalePleasant.png'
-    let arousalLikert = 'scale/BlankScalePleasant.png'
+    let unpleasantLikert = 'scale/BlankScaleUnpleasant.png'
+    let arousalLikert = 'scale/BlankScaleArousal.png'
 
     let pleasantResponse = []
     let unpleasantResponse = []
@@ -322,7 +322,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
 
     var prompt_pleasant = {
       type: "html-keyboard-response",
-      trial_duration: 2000,
+      trial_duration: 500,
       prompt: pleasant_Prompt,
 
       // stimulus: jsPsych.timelineVariable('stimulus'),
@@ -334,7 +334,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
 
     var prompt_unpleasant = {
       type: "html-keyboard-response",
-      trial_duration: 2000,
+      trial_duration: 500,
       prompt: unpleasant_Prompt,
       // stimulus: jsPsych.timelineVariable('stimulus'),
       // stimulus_height: 500,
@@ -345,7 +345,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
 
     var prompt_arousal = {
       type: "html-keyboard-response",
-      trial_duration: 2000,
+      trial_duration: 500,
       prompt: arousal_Prompt,
       // stimulus: jsPsych.timelineVariable('stimulus'),
       // stimulus_height: 500,
@@ -424,7 +424,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       },
       // choices: ['1','2','3','4','5'],
       response_ends_trial: false,
-      trial_duration: 2000,
+      trial_duration: 500,
       data: participantResponse = jsPsych.data.get().select('responses'),
       
     };
@@ -472,7 +472,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       },
       // choices: ['1','2','3','4','5'],
       response_ends_trial: false,
-      trial_duration: 2000,
+      trial_duration: 500,
       data: participantResponse = jsPsych.data.get().select('responses'),
       
     };
@@ -520,7 +520,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       },
       // choices: ['1','2','3','4','5'],
       response_ends_trial: false,
-      trial_duration: 2000,
+      trial_duration: 500,
       data: participantResponse = jsPsych.data.get().select('responses'),
       
     };
@@ -575,7 +575,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
 
 function saveData(name, data){
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'test-self-deception.php'); // 'write_data.php' is the path to the php file described above.
+  xhr.open('POST', 'index.php'); // 'write_data.php' is the path to the php file described above.
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filename: name, filedata: data}));
 }
@@ -596,14 +596,14 @@ function saveData(name, data){
       else
         return results[1];
     }
-    var workerID = getParamFromURL( 'workerId' );
+    // var workerID = getParamFromURL( 'workerId' );
 
     /* start the experiment */
     function startExperiment(){
       jsPsych.init({
         timeline: timeline,
         show_progress_bar: true,
-        on_finish: function(){ saveData("full-self-deception_" + workerID, jsPsych.data.get().csv()); }
+        on_finish: function(){ saveData("hedonic-reactivity_" + workerID, jsPsych.data.get().csv()); }
         //on_finish: function(){
           //jsPsych.data.get().filter([{test_part: 'test'},{test_part: 'prediction'},{test_part: 'c2_test'}]).localSave("csv", `test-self-deception-data.csv`);
             //jsPsych.data.displayData(); 

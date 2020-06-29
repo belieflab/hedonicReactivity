@@ -1,5 +1,5 @@
 img {
-  float:left;
+  float:center;
 }
 
 body {
@@ -106,8 +106,9 @@ body {
 
 /* Styling for all image*/
 .center {
+  float: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  /* width: 50%; */
 }
