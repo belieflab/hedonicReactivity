@@ -112,16 +112,16 @@ file_put_contents($name, $data);
     let unpleasant_Prompt = '<p style="color:white;">How unpleasant does the picture make you feel?</p> '
     let arousal_Prompt = '<p style="color:white;">How arousing/exciting does the picture make you feel?</p> '
 
-    let pleasantPrompt = '<p style="color:white;">How pleasant?</p> '
-    let unpleasantPrompt = '<p style="color:white;">How unpleasant?</p> '
-    let arousalPrompt = '<p style="color:white;">How arousing/exciting?</p> '
+    let pleasantPrompt = '<p style="color:white; text-align:center;">How pleasant?</p> '
+    let unpleasantPrompt = '<p style="color:white; text-align:center;">How unpleasant?</p> '
+    let arousalPrompt = '<p style="color:white; text-align:center;">How arousing/exciting?</p> '
 
 
     let pleasantLikert = 'scale/BlankScalePleasant.png'
     let unpleasantLikert = 'scale/BlankScalePleasant.png'
     let arousalLikert = 'scale/BlankScalePleasant.png'
 
-    let pleasantResponse = ["scale/PleasantScale1.jpg"]
+    let pleasantResponse = []
     let unpleasantResponse = []
     let arousalResponse = []
 
@@ -129,26 +129,26 @@ file_put_contents($name, $data);
     /* define welcome message trial */
     var welcome = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Welcome to the experiment! Press any key to begin.</p>'
+      stimulus: '<p style="color:white;">Welcome to the experiment! <br/>Press any key to begin.</p>'
     };
     timeline.push(welcome);
 
     /* define instructions trial */
     let instructions_1 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">You will now see a series of pictures. </p>' +
+      stimulus: '<p style="color:white;">You will now see a series of pictures </p>' +
         '<p style="color:white;">Some of the pictures will be positive, like pictures of babies.   </p>' +
         '<p style="color:white;">Some will be negative, like pictures of sharks or sad people. </p>'+
         '<p style="color:white;"> Some will be neutral, like pictures of a clock or desk</p>'
     };
-    // timeline.push(instructions_1);
+    timeline.push(instructions_1);
 
     let instructions_2 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">We want you to tell us how each picture makes you feel.</p> ' +
           '<p style="color:white;">You will make 3 ratings for each picture.</p> '
     };
-    // timeline.push(instructions_2);
+    timeline.push(instructions_2);
 
     let instructions_3 = {
       type: "html-keyboard-response",
@@ -156,15 +156,14 @@ file_put_contents($name, $data);
       '<p style="color:white;">"Pleasantness" refers to how happy or good you feel when you see each photo and how much you like looking at it.</p> '
     };
 
-    // timeline.push(instructions_3);
+    timeline.push(instructions_3);
     
     let instructions_4 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Pleasentness rating scale </p> '
+      stimulus: '<p style="color:white;">Pleasentness rating scale </p> ' +
+                "<img class='center' style='width:500px; height:300px;' src='scale/BlankScalePleasant.png'></img>"
     };
-    // timeline.push(instructions_4);
-
-
+    timeline.push(instructions_4);
 
 
     var instructions_5 = {
@@ -172,13 +171,14 @@ file_put_contents($name, $data);
       stimulus: '<p style="color:white;">The second rating you will be asked to make is a rating of how unpleasant you feel when you see the photo.</p> ' +
                 '<p style="color:white;">"Unpleasantness" refers to how bad or unhappy you feel when you see each photo.</p>'
     };
-    // timeline.push(instructions_5);
+    timeline.push(instructions_5);
 
     var instructions_6 = {
       type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">Unpleasentes rating scale</p> '
+      stimulus: '<p style="color:white;">Unpleasentness rating scale</p> '+
+      "<img class='center' style='width:500px; height:300px;' src='scale/BlankScaleUnpleasant.png'></img>"
     };
-    // timeline.push(instructions_6);
+    timeline.push(instructions_6);
 
     var instructions_7 = {
       type: "html-keyboard-response",
@@ -186,17 +186,27 @@ file_put_contents($name, $data);
       '<p style="color:white;">There are no "right" or "wrong" answers for rating the photos.</p> ' +
       '<p Just go by how much you like or dislike each one.</p> '
     };
-    // timeline.push(instructions_7);
+    timeline.push(instructions_7);
 
     var instructions_8 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">The third rating you will be asked to make is a rating of how arousing or exciting each picture makes you feel.</p> ' +
       '<p style="color:white;">"Arousing" refers to how excited or keyed-up the photo makes you feel. Some of the pictures will be highly arousing and some will make you feel more calm or sleepy.</p> '
     };
-    // timeline.push(instructions_8);
+    timeline.push(instructions_8);
 
+    var instructions_9 = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">Arousal rating scale</p> '+
+      "<img class='center' style='width:600px; height:300px;' src='scale/BlankScaleArousal.png'></img>"
+    };
+    timeline.push(instructions_9);
     
-    
+    var instructions_10 = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="color:white;">Now we will have you rate some pictures for how positive, how negative, and how arousing they make you feel.</p> ' 
+    };
+    timeline.push(instructions_10);
 
 
     /* START TRAINING TRIAL FOR PARTICIPANTS */
@@ -353,15 +363,54 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
                 "<img id='pleasant' class='center' src='"+jsPsych.timelineVariable('Likert_pleasant', true)+"'>";
                 return html;
       },
-      choices: ['1','2','3','4','5'],
+      choices: [49,50,51,52,53],
       response_ends_trial: true,
       data: jsPsych.data.get().select('responses'),
-      on_finish: function(){
-      if (response_pleasant.choices == "1"){
-        // Write switch statement for each option referencing an array index
-        document.getElementById("pleasant").src='"+jsPsych.timelineVariable(pleasantResponse[0], true)+"';
+      on_finish: function(data){
+      // switch(){
+      //   case data.key_press == '1': 
+      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale1.jpg")
+      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale1.jpg"})
+      //     break;
+      //   case data.key_press == '2': 
+      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale2.jpg")
+      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale2.jpg"})
+      //     break;
+      //   case data.key_press == '3':
+      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale3.jpg")
+      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale3.jpg"})
+      //     break;
+      //   case data.key_press == '4':
+      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale4.jpg")
+      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale4.jpg"})
+      //     break;
+      //   case data.key_press == '5':
+      //     pleasantResponse = pleasantResponse.push("scale/PleasantScale5.jpg")
+      //     // pleasantResponse = jsPsych.data.addProperties({subject: "scale/PleasantScale5.jpg"})
+      //     break;
+      //   default:
+      // }
+
+      if (data.key_press == 49){
+        pleasantResponse.pop()
+        pleasantResponse.push("scale/PleasantScale1.jpg")
+      } else if (data.key_press == 50){
+        pleasantResponse.pop()
+        pleasantResponse.push("scale/PleasantScale2.jpg")
+      } else if (data.key_press == 51){
+        pleasantResponse.pop()
+        pleasantResponse.push("scale/PleasantScale3.jpg")
+      } else if (data.key_press == 52){
+        pleasantResponse.pop()
+        pleasantResponse.push("scale/PleasantScale4.jpg")
+      } else if (data.key_press == 53){
+        pleasantResponse.pop()
+        pleasantResponse.push("scale/PleasantScale5.jpg")
       }
+        
+
       },
+
     };
     // timeline.push(response_pleasant);
 
@@ -373,8 +422,9 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
                 "<img id='pleasant' class='center' src='"+jsPsych.timelineVariable('feedback_pleasant', true)+"'>";
                 return html;
       },
-      choices: ['1','2','3','4','5'],
-      response_ends_trial: true,
+      // choices: ['1','2','3','4','5'],
+      response_ends_trial: false,
+      trial_duration: 2000,
       data: participantResponse = jsPsych.data.get().select('responses'),
       
     };
@@ -388,10 +438,44 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
                 return html;
       },
       
-      choices: ['1','2','3','4','5'],
-      data: jsPsych.data.get().select('responses')
+      choices: [49,50,51,52,53],
+      data: jsPsych.data.get().select('responses'),
+      on_finish: function(data){
+        if (data.key_press == 49){
+          unpleasantResponse.pop()
+          unpleasantResponse.push("scale/UnpleasantScale1.jpg")
+      } else if (data.key_press == 50){
+          unpleasantResponse.pop()
+          unpleasantResponse.push("scale/UnpleasantScale2.jpg")
+      } else if (data.key_press == 51){
+          unpleasantResponse.pop()
+          unpleasantResponse.push("scale/UnpleasantScale3.jpg")
+      } else if (data.key_press == 52){
+          unpleasantResponse.pop()
+          unpleasantResponse.push("scale/UnpleasantScale4.jpg")
+      } else if (data.key_press == 53){
+         unpleasantResponse.pop()
+          unpleasantResponse.push("scale/UnleasantScale5.jpg")
+      }
+        
+      },
     };
     // timeline.push(response_unpleasant);
+
+    var feedback_unpleasant = {
+      type: "html-keyboard-response",
+      stimulus: function(){
+                var html= jsPsych.timelineVariable('prompt_unpleasant', true) +
+                "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+                "<img id='pleasant' class='center' src='"+jsPsych.timelineVariable('feedback_unpleasant', true)+"'>";
+                return html;
+      },
+      // choices: ['1','2','3','4','5'],
+      response_ends_trial: false,
+      trial_duration: 2000,
+      data: participantResponse = jsPsych.data.get().select('responses'),
+      
+    };
 
     var response_arousal = {
       type: "html-keyboard-response",
@@ -402,14 +486,48 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
                 return html;
       },
       
-      choices: ['1','2','3','4','5'],
-      data: jsPsych.data.get().select('responses')
+      choices: [49,50,51,52,53],
+      data: jsPsych.data.get().select('responses'),
+      on_finish: function(data){
+        if (data.key_press == 49){
+          arousalResponse.pop()
+          arousalResponse.push("scale/ArousalScale1.jpg")
+      } else if (data.key_press == 50){
+          arousalResponse.pop()
+          arousalResponse.push("scale/ArousalScale2.jpg")
+      } else if (data.key_press == 51){
+          arousalResponse.pop()
+          arousalResponse.push("scale/ArousalScale3.jpg")
+      } else if (data.key_press == 52){
+          arousalResponse.pop() 
+          arousalResponse.push("scale/ArousalScale4.jpg")
+      } else if (data.key_press == 53){
+          arousalResponse.pop()
+          arousalResponse.push("scale/ArousalScale5.jpg")
+      }
+
+      },
     };
     // timeline.push(response_arousal);
 
+    var feedback_arousal = {
+      type: "html-keyboard-response",
+      stimulus: function(){
+                var html= jsPsych.timelineVariable('prompt_arousal', true) +
+                "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+                "<img id='pleasant' class='center' src='"+jsPsych.timelineVariable('feedback_arousal', true)+"'>";
+                return html;
+      },
+      // choices: ['1','2','3','4','5'],
+      response_ends_trial: false,
+      trial_duration: 2000,
+      data: participantResponse = jsPsych.data.get().select('responses'),
+      
+    };
+
 // this is where the procedure loops over the timeline property below. the timeline variables are the stimuli.
     var procedure = {
-      timeline: [fixation, prompt_pleasant, response_pleasant, feedback_pleasant, prompt_unpleasant, response_unpleasant, prompt_arousal, response_arousal],
+      timeline: [fixation, prompt_pleasant, response_pleasant, feedback_pleasant, prompt_unpleasant, response_unpleasant, feedback_unpleasant, prompt_arousal, response_arousal, feedback_arousal],
       timeline_variables: full_stim_shuffle,
       //randomize_order: false
     }
