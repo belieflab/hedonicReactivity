@@ -141,44 +141,36 @@ file_put_contents($name, $data);
         '<p style="color:white;">Some will be negative, like pictures of sharks or sad people. </p>'+
         '<p style="color:white;"> Some will be neutral, like pictures of a clock or desk</p>'
     };
-    timeline.push(instructions_1);
 
     let instructions_2 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">We want you to tell us how each picture makes you feel.</p> ' +
           '<p style="color:white;">You will make 3 ratings for each picture.</p> '
     };
-    timeline.push(instructions_2);
 
     let instructions_3 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">The first rating you will be asked to make is a rating of how pleasant you feel when you see the photo.</p> ' +
       '<p style="color:white;">"Pleasantness" refers to how happy or good you feel when you see each photo and how much you like looking at it.</p> '
     };
-
-    timeline.push(instructions_3);
     
     let instructions_4 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">Pleasentness rating scale </p> ' +
                 "<img class='center' style='width:500px; height:300px;' src='scale/BlankScalePleasant.png'></img>"
     };
-    timeline.push(instructions_4);
-
 
     var instructions_5 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">The second rating you will be asked to make is a rating of how unpleasant you feel when you see the photo.</p> ' +
                 '<p style="color:white;">"Unpleasantness" refers to how bad or unhappy you feel when you see each photo.</p>'
     };
-    timeline.push(instructions_5);
 
     var instructions_6 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">Unpleasentness rating scale</p> '+
       "<img class='center' style='width:500px; height:300px;' src='scale/BlankScaleUnpleasant.png'></img>"
     };
-    timeline.push(instructions_6);
 
     var instructions_7 = {
       type: "html-keyboard-response",
@@ -186,28 +178,30 @@ file_put_contents($name, $data);
       '<p style="color:white;">There are no "right" or "wrong" answers for rating the photos.</p> ' +
       '<p Just go by how much you like or dislike each one.</p> '
     };
-    timeline.push(instructions_7);
 
     var instructions_8 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">The third rating you will be asked to make is a rating of how arousing or exciting each picture makes you feel.</p> ' +
       '<p style="color:white;">"Arousing" refers to how excited or keyed-up the photo makes you feel. Some of the pictures will be highly arousing and some will make you feel more calm or sleepy.</p> '
     };
-    timeline.push(instructions_8);
 
     var instructions_9 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">Arousal rating scale</p> '+
       "<img class='center' style='width:600px; height:300px;' src='scale/BlankScaleArousal.png'></img>"
     };
-    timeline.push(instructions_9);
     
     var instructions_10 = {
       type: "html-keyboard-response",
       stimulus: '<p style="color:white;">Now we will have you rate some pictures for how positive, how negative, and how arousing they make you feel.</p> ' 
     };
-    timeline.push(instructions_10);
 
+
+    var instructions = {
+      timeline: [instructions_1, instructions_2, instructions_3, instructions_4, instructions_5, instructions_6, instructions_7, instructions_8, instructions_9, instructions_10],
+    }
+
+    timeline.push(instructions)
 
     /* START TRAINING TRIAL FOR PARTICIPANTS */
 // delayed discounting task: three variables: 1st= money now, 2nd= money later, 3rd= money days later
@@ -322,7 +316,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
 
     var prompt_pleasant = {
       type: "html-keyboard-response",
-      trial_duration: 500,
+      trial_duration: 2000,
       prompt: pleasant_Prompt,
 
       // stimulus: jsPsych.timelineVariable('stimulus'),
@@ -334,7 +328,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
 
     var prompt_unpleasant = {
       type: "html-keyboard-response",
-      trial_duration: 500,
+      trial_duration: 2000,
       prompt: unpleasant_Prompt,
       // stimulus: jsPsych.timelineVariable('stimulus'),
       // stimulus_height: 500,
@@ -345,7 +339,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
 
     var prompt_arousal = {
       type: "html-keyboard-response",
-      trial_duration: 500,
+      trial_duration: 2000,
       prompt: arousal_Prompt,
       // stimulus: jsPsych.timelineVariable('stimulus'),
       // stimulus_height: 500,
@@ -424,7 +418,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       },
       // choices: ['1','2','3','4','5'],
       response_ends_trial: false,
-      trial_duration: 500,
+      trial_duration: 2000,
       data: participantResponse = jsPsych.data.get().select('responses'),
       
     };
@@ -472,7 +466,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       },
       // choices: ['1','2','3','4','5'],
       response_ends_trial: false,
-      trial_duration: 500,
+      trial_duration: 2000,
       data: participantResponse = jsPsych.data.get().select('responses'),
       
     };
@@ -520,7 +514,7 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       },
       // choices: ['1','2','3','4','5'],
       response_ends_trial: false,
-      trial_duration: 500,
+      trial_duration: 2000,
       data: participantResponse = jsPsych.data.get().select('responses'),
       
     };
@@ -558,16 +552,16 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
     /* END TRAINING TRIAL FOR PARTICIPANTS */
 
     // COMPLETION MESSAGE: Completed Classification Phase
-    var link = "https://survey.az1.qualtrics.com/SE/?SID=SV_9uARDX1aXEXq1pP&Q_JFE=0&workerId="
-    var instructions_16 = {
-      type: "html-keyboard-response",
-      stimulus: '<p style="color:white;">You have now completed the task! Saving data...PLEASE DO NOT CLOSE THIS BROWSER until you complete the second part.</p> ' +
-          '<p style="color:white;">BEFORE THE LINK DISAPPEARS please move on to the second part of the task at this link to obtain your completion code:</p> ' +
-          "<a href=" + link + ' target="_blank">' + link + "</a>",
-      choices: jsPsych.NO_KEYS,
-      trial_duration: 40000
-    };
-    timeline.push(instructions_16);
+    // var link = "https://survey.az1.qualtrics.com/SE/?SID=SV_9uARDX1aXEXq1pP&Q_JFE=0&workerId="
+    // var instructions_16 = {
+    //   type: "html-keyboard-response",
+    //   stimulus: '<p style="color:white;">You have now completed the task! Saving data...PLEASE DO NOT CLOSE THIS BROWSER until you complete the second part.</p> ' +
+    //       '<p style="color:white;">BEFORE THE LINK DISAPPEARS please move on to the second part of the task at this link to obtain your completion code:</p> ' +
+    //       "<a href=" + link + ' target="_blank">' + link + "</a>",
+    //   choices: jsPsych.NO_KEYS,
+    //   trial_duration: 40000
+    // };
+    // timeline.push(instructions_16);
 
 
 
