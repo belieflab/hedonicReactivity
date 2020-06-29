@@ -121,8 +121,20 @@ file_put_contents($name, $data);
     let arousalLikert = 'scale/BlankScaleArousal.png'
 
     let pleasantResponse = [];
+    for (let i = 1; i <= 5 ; i++){
+      pleasantResponse.push("scale/PleasantScale"+i+".jpg")
+    }
+
     let unpleasantResponse = [];
+    for (let i = 1; i <= 5 ; i++){
+      unpleasantResponse.push("scale/UnpleasantScale"+i+".jpg")
+    }
+
     let arousalResponse = [];
+    for (let i = 1; i <= 5 ; i++){
+      arousalResponse.push("scale/ArousalScale"+i+".jpg")
+    }
+
 
 // let MinutesToPlay = 20;
     /* define welcome message trial */
@@ -362,23 +374,33 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       on_finish: function(data){
       switch(data.key_press){
         case 49: 
-          pleasantResponse.pop()
+          while(pleasantResponse.length > 0) { //workaround to make sure there is no problems with image preloading of feedback
+            pleasantResponse.pop();
+          } 
           pleasantResponse.push("scale/PleasantScale1.jpg")
           break;
         case 50: 
-          pleasantResponse.pop()
+          while(pleasantResponse.length > 0) {
+            pleasantResponse.pop();
+          } 
           pleasantResponse.push("scale/PleasantScale2.jpg")
           break;
         case 51:
-          pleasantResponse.pop()
+          while(pleasantResponse.length > 0) {
+            pleasantResponse.pop();
+          } 
           pleasantResponse.push("scale/PleasantScale3.jpg")
           break;
         case 52:
-          pleasantResponse.pop()
+          while(pleasantResponse.length > 0) {
+            pleasantResponse.pop();
+          } 
           pleasantResponse.push("scale/PleasantScale4.jpg")
           break;
         case 53:
-          pleasantResponse.pop()
+          while(pleasantResponse.length > 0) {
+            pleasantResponse.pop();
+          } 
           pleasantResponse.push("scale/PleasantScale5.jpg")
           break;
         default:
@@ -435,19 +457,29 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       data: jsPsych.data.get().select('responses'),
       on_finish: function(data){
         if (data.key_press == 49){
-          unpleasantResponse.pop()
+          while(unpleasantResponse.length > 0) {
+            unpleasantResponse.pop();
+          } 
           unpleasantResponse.push("scale/UnpleasantScale1.jpg")
       } else if (data.key_press == 50){
-          unpleasantResponse.pop()
+          while(unpleasantResponse.length > 0) {
+            unpleasantResponse.pop();
+          } 
           unpleasantResponse.push("scale/UnpleasantScale2.jpg")
       } else if (data.key_press == 51){
-          unpleasantResponse.pop()
+          while(unpleasantResponse.length > 0) {
+            unpleasantResponse.pop();
+          } 
           unpleasantResponse.push("scale/UnpleasantScale3.jpg")
       } else if (data.key_press == 52){
-          unpleasantResponse.pop()
+          while(unpleasantResponse.length > 0) {
+            unpleasantResponse.pop();
+          } 
           unpleasantResponse.push("scale/UnpleasantScale4.jpg")
       } else if (data.key_press == 53){
-         unpleasantResponse.pop()
+          while(unpleasantResponse.length > 0) {
+            unpleasantResponse.pop();
+          } 
           unpleasantResponse.push("scale/UnpleasantScale5.jpg")
       }
         
@@ -483,19 +515,29 @@ let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled a
       data: jsPsych.data.get().select('responses'),
       on_finish: function(data){
         if (data.key_press == 49){
-          arousalResponse.pop()
+          while(arousalResponse.length > 0) {
+            arousalResponse.pop();
+          } 
           arousalResponse.push("scale/ArousalScale1.jpg")
       } else if (data.key_press == 50){
-          arousalResponse.pop()
+          while(arousalResponse.length > 0) {
+            arousalResponse.pop();
+          } 
           arousalResponse.push("scale/ArousalScale2.jpg")
       } else if (data.key_press == 51){
-          arousalResponse.pop()
+          while(arousalResponse.length > 0) {
+            arousalResponse.pop();
+          } 
           arousalResponse.push("scale/ArousalScale3.jpg")
       } else if (data.key_press == 52){
-          arousalResponse.pop() 
+          while(arousalResponse.length > 0) {
+            arousalResponse.pop();
+          } 
           arousalResponse.push("scale/ArousalScale4.jpg")
       } else if (data.key_press == 53){
-          arousalResponse.pop()
+          while(arousalResponse.length > 0) {
+            arousalResponse.pop();
+          } 
           arousalResponse.push("scale/ArousalScale5.jpg")
       }
 
@@ -596,7 +638,7 @@ function saveData(name, data){
       jsPsych.init({
         timeline: timeline,
         show_progress_bar: true,
-        preload_images: [positive_stimuli, negative_stimuli, neutral_stimuli],
+        preload_images: [positive_stimuli, negative_stimuli, neutral_stimuli, pleasantLikert, unpleasantLikert, arousalLikert, pleasantResponse, unpleasantResponse, arousalResponse],
         on_finish: function(){ saveData("hedonic-reactivity_" + workerID, jsPsych.data.get().csv()); }
         //on_finish: function(){
           //jsPsych.data.get().filter([{test_part: 'test'},{test_part: 'prediction'},{test_part: 'c2_test'}]).localSave("csv", `test-self-deception-data.csv`);
