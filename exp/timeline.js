@@ -4,70 +4,95 @@ var timeline = [];
 /* define welcome message trial */
 var welcome = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">Welcome to the experiment! <br/>Press any key to begin.</p>'
+    stimulus: '<p style="color:white;">Welcome to the experiment!</p>'+
+    '<p style="color:white;">Press any key to begin.</p>'
 };
 
 /* define instructions trial */
 let instructions_1 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">You will now see a series of pictures </p>' +
-    '<p style="color:white;">Some of the pictures will be positive, like pictures of babies.   </p>' +
-    '<p style="color:white;">Some will be negative, like pictures of sharks or sad people. </p>'+
-    '<p style="color:white;"> Some will be neutral, like pictures of a clock or desk</p>'
+    stimulus: '<p style="color:white;">You will now see a series of pictures. </p>' +
+    '<p style="color:white;">Some of the pictures will be <b>positive</b>, like pictures of babies.   </p>' +
+    '<p style="color:white;">Some will be <b>negative</b>, like pictures of sharks or sad people. </p>'+
+    '<p style="color:white;"> Some will be <b>neutral</b>, like pictures of a clock or desk.</p>'+
+    '<p style="color:white;"> Press the spacebar to continue.</p>',
+    choices: [32],
 };
 
 let instructions_2 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">We want you to tell us how each picture makes you feel.</p> ' +
-        '<p style="color:white;">You will make 3 ratings for each picture.</p> '
+    stimulus: '<p style="color:white;">We want you to tell us how each picture makes you <b>feel</b>.</p> ' +
+        '<p style="color:white;">You will make <b>3 ratings</b> for each picture.</p> '+
+        '<p style="color:white;"> Press the spacebar to continue.</p>',
+        choices: [32],
 };
 
 let instructions_3 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">The first rating you will be asked to make is a rating of how pleasant you feel when you see the photo.</p> ' +
-    '<p style="color:white;">"Pleasantness" refers to how happy or good you feel when you see each photo and how much you like looking at it.</p> '
+    stimulus: '<p style="color:white;">The first rating you will be asked to make is a rating of how <b>pleasant</b> you feel when you see the photo.</p> ' +
+    '<p style="color:white;"><b>"Pleasantness"</b>  refers to how <b>happy</b> or <b>good</b> you feel when you see each photo and how much you like looking at it.</p> '+
+    '<p style="color:white;"> Press the spacebar to continue.</p>',
+    choices: [32],
 };
 
 let instructions_4 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">Pleasentness rating scale </p> ' +
-            "<img class='center' style='width:500px; height:300px;' src='scale/BlankScalePleasant.png'></img>"
+    stimulus: '<p style="color:white;"><b>Pleasantness</b></p> ' +
+            '<p style="color:white;">This is the <b>pleasantness scale</b> that you will use to rate how <b>positive</b> you feel when you see each picture.</p>'+
+            "<img class='center' style='width:500px; height:300px;' src='scale/BlankScalePleasant.png'></img>"+
+            '<p style="color:white;"> Press the spacebar to continue.</p>',
+            choices: [32],
 };
 
 let instructions_5 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">The second rating you will be asked to make is a rating of how unpleasant you feel when you see the photo.</p> ' +
-            '<p style="color:white;">"Unpleasantness" refers to how bad or unhappy you feel when you see each photo.</p>'
+    stimulus: '<p style="color:white;">The second rating you will be asked to make is a rating of how <b>unpleasant</b> you feel when you see the photo.</p> ' +
+            '<p style="color:white;"><b>"Unpleasantness"</b> refers to how <b>bad</b> or <b>unhappy</b> you feel when you see each photo.</p>'+
+            '<p style="color:white;"> Press the spacebar to continue.</p>',
+            choices: [32],
 };
 
 let instructions_6 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">Unpleasentness rating scale</p> '+
-    "<img class='center' style='width:500px; height:300px;' src='scale/BlankScaleUnpleasant.png'></img>"
+    stimulus: '<p style="color:white;"><b>Unpleasantness</b></p> '+
+    '<p style="color:white;">This is the <b>unpleasantness scale</b> that you will use to rate how <b>negative</b> you feel when you see each picture.</p>'+
+    "<img class='center' style='width:500px; height:300px;' src='scale/BlankScaleUnpleasant.png'></img>"+
+    '<p style="color:white;"> Press the spacebar to continue.</p>',
+    choices: [32],
 };
 
 let instructions_7 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">You should decide how to rate each photo on the basis of how pleasant or unpleasant you feel when you see it.</p> ' +
+    stimulus: '<p style="color:white;">You should decide how to rate each photo on the basis of how <b>pleasant</b> or <b>unpleasant</b> you feel when you see it.</p> ' +
     '<p style="color:white;">There are no "right" or "wrong" answers for rating the photos.</p> ' +
-    '<p Just go by how much you like or dislike each one.</p> '
+    '<p style="color:white;">Just go by how much you like or dislike each one.</p> '+
+    '<p style="color:white;"> Press the spacebar to continue.</p>',
+    choices: [32],
 };
 
 let instructions_8 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">The third rating you will be asked to make is a rating of how arousing or exciting each picture makes you feel.</p> ' +
-    '<p style="color:white;">"Arousing" refers to how excited or keyed-up the photo makes you feel. Some of the pictures will be highly arousing and some will make you feel more calm or sleepy.</p> '
+    stimulus: '<p style="color:white;">The third rating you will be asked to make is a rating of how <b>arousing</b> or <b>exciting</b> each picture makes you feel.</p> ' +
+    '<p style="color:white;"><b>"Arousing"</b> refers to how <b>excited</b> or <b>keyed-up</b> the photo makes you feel.<p>'+
+    '<p style="color:white;">Some of the pictures will be <b>highly arousing</b> and some will make you feel more <b>calm</b> or <b>sleepy</b>.</p> '+
+    '<p style="color:white;"> Press the spacebar to continue.</p>',
+    choices: [32],
 };
 
 let instructions_9 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">Arousal rating scale</p> '+
-    "<img class='center' style='width:600px; height:300px;' src='scale/BlankScaleArousal.png'></img>"
+    stimulus: '<p style="color:white;"><b>Arousal</b></p> '+
+    '<p style="color:white;">This is the <b>arousal scale</b> that you will use to rate how <b>calm to excited</b> you feel when you see each picture.</p>'+
+    "<img class='center' style='width:600px; height:300px;' src='scale/BlankScaleArousal.png'></img>"+
+    '<p style="color:white;"> Press the spacebar to continue.</p>',
+    choices: [32],
 };
 
 let instructions_10 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">Now we will have you rate some pictures for how positive, how negative, and how arousing they make you feel.</p> ' 
+    stimulus: '<p style="color:white;">Now we will have you rate some pictures for how <b>positive</b>, how <b>negative</b>, and how <b>arousing</b> they make you feel.</p> ' +
+    '<p style="color:white;"> Press the spacebar to continue.</p>',
+    choices: [32],
 };
 
 var fixation = {
@@ -276,15 +301,10 @@ var feedback_pleasant = {
     
   };
 
-  var end_of_trial = {
+let debriefing = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">You completed the task.   </p> ' +
-    '<p style="color:white;">No money this round    </p> ' +
-    '<p style="color:white;">Now you are ready to play the game.    </p> ' +
-    '<p style="color:white;">You did not complete the task.   </p> ' +
-    '<p style="color:white;">Get your hands in position and press the space bar to start. </p>',
-    
-    choices: [32],
-    post_trial_gap: 2000,
-  
-  };
+    stimulus: '<p style="color:white;">You have now completed the task!</p>'+
+    '<p style="color:white;">Saving data...PLEASE DO NOT CLOSE THIS BROWSER OR MOVE ON TO THE NEXT TASK until the experimenter tells you to do so.</p> ',
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 40000,
+};

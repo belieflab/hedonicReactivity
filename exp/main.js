@@ -11,5 +11,6 @@ var procedure = {
 
 
 timeline.push(welcome);
-timeline.push(instructions)
+timeline.push(instructions);
 timeline.push(procedure);
+timeline.push(debriefing);
