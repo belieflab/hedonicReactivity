@@ -303,8 +303,8 @@ var feedback_pleasant = {
 
 let debriefing = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">You have now completed the task!</p>'+
-    '<p style="color:white;">Saving data...PLEASE DO NOT CLOSE THIS BROWSER OR MOVE ON TO THE NEXT TASK until the experimenter tells you to do so.</p> ',
+    stimulus: "<p style='color:white;'>You have completed this task. Please wait for the experimenter to continue.</p>"+
+    "<p style='color:white;'>Data Saving...Do not close this window until the text dissapears.”</p>",
     choices: jsPsych.NO_KEYS,
-    trial_duration: 40000,
+    trial_duration: 10000,
 };
