@@ -4,93 +4,93 @@ var timeline = [];
 /* define welcome message trial */
 var welcome = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">Welcome to the experiment!</p>'+
+    stimulus: '<h1 style="color:white;">Welcome to the experiment!</h1>'+
     '<p style="color:white;">Press any key to begin.</p>'
 };
 
 /* define instructions trial */
 let instructions_1 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">You will now see a series of pictures. </p>' +
-    '<p style="color:white;">Some of the pictures will be <b>positive</b>, like pictures of babies.   </p>' +
-    '<p style="color:white;">Some will be <b>negative</b>, like pictures of sharks or sad people. </p>'+
-    '<p style="color:white;"> Some will be <b>neutral</b>, like pictures of a clock or desk.</p>'+
+    stimulus: '<h2 style="color:white;">You will now see a series of pictures. </h2>' +
+    '<h3 style="color:white;">Some of the pictures will be <b>positive</b>, like pictures of babies.   </h3>' +
+    '<h3 style="color:white;">Some will be <b>negative</b>, like pictures of sharks or sad people. </h3>'+
+    '<h3 style="color:white;"> Some will be <b>neutral</b>, like pictures of a clock or desk.</h3>'+
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
 
 let instructions_2 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">We want you to tell us how each picture makes you <b>feel</b>.</p> ' +
-        '<p style="color:white;">You will make <b>3 ratings</b> for each picture.</p> '+
+    stimulus: '<h2 style="color:white;">We want you to tell us how each picture makes you <b>feel</b>.</h2> ' +
+        '<h3 style="color:white;">You will make <b>3 ratings</b> for each picture.</h3> '+
         '<p style="color:white;"> Press the spacebar to continue.</p>',
         choices: [32],
 };
 
 let instructions_3 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">The first rating you will be asked to make is a rating of how <b>pleasant</b> you feel when you see the photo.</p> ' +
-    '<p style="color:white;"><b>"Pleasantness"</b>  refers to how <b>happy</b> or <b>good</b> you feel when you see each photo and how much you like looking at it.</p> '+
+    stimulus: '<h2 style="color:white;">The first rating you will be asked to make is a rating of how <b>pleasant</b> you feel when you see the photo.</h2> ' +
+    '<h3 style="color:white;"><b>"Pleasantness"</b>  refers to how <b>happy</b> or <b>good</b> you feel when you see each photo and how much you like looking at it.</h3> '+
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
 
 let instructions_4 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;"><b>Pleasantness</b></p> ' +
-            '<p style="color:white;">This is the <b>pleasantness scale</b> that you will use to rate how <b>positive</b> you feel when you see each picture.</p>'+
-            "<img class='center' style='width:500px; height:300px;' src='scale/BlankScalePleasant.png'></img>"+
+    stimulus: '<h2 style="color:white;"><b>Pleasantness</b></h2> ' +
+            '<h3 style="color:white;">This is the <b>pleasantness scale</b> that you will use to rate how <b>positive</b> you feel when you see each picture.</h3>'+
+            "<img class='center' style='width:453px; height:215px;' src='scale/BlankScalePleasant.png'></img>"+
             '<p style="color:white;"> Press the spacebar to continue.</p>',
             choices: [32],
 };
 
 let instructions_5 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">The second rating you will be asked to make is a rating of how <b>unpleasant</b> you feel when you see the photo.</p> ' +
-            '<p style="color:white;"><b>"Unpleasantness"</b> refers to how <b>bad</b> or <b>unhappy</b> you feel when you see each photo.</p>'+
+    stimulus: '<h2 style="color:white;">The second rating you will be asked to make is a rating of how <b>unpleasant</b> you feel when you see the photo.</h2> ' +
+            '<h3 style="color:white;"><b>"Unpleasantness"</b> refers to how <b>bad</b> or <b>unhappy</b> you feel when you see each photo.</h3>'+
             '<p style="color:white;"> Press the spacebar to continue.</p>',
             choices: [32],
 };
 
 let instructions_6 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;"><b>Unpleasantness</b></p> '+
-    '<p style="color:white;">This is the <b>unpleasantness scale</b> that you will use to rate how <b>negative</b> you feel when you see each picture.</p>'+
-    "<img class='center' style='width:500px; height:300px;' src='scale/BlankScaleUnpleasant.png'></img>"+
+    stimulus: '<h2 style="color:white;"><b>Unpleasantness</b></h2> '+
+    '<h3 style="color:white;">This is the <b>unpleasantness scale</b> that you will use to rate how <b>negative</b> you feel when you see each picture.</h3>'+
+    "<img class='center' style='width:451px; height:211px;' src='scale/BlankScaleUnpleasant.png'></img>"+
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
 
 let instructions_7 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">You should decide how to rate each photo on the basis of how <b>pleasant</b> or <b>unpleasant</b> you feel when you see it.</p> ' +
-    '<p style="color:white;">There are no "right" or "wrong" answers for rating the photos.</p> ' +
-    '<p style="color:white;">Just go by how much you like or dislike each one.</p> '+
+    stimulus: '<h2 style="color:white;">You should decide how to rate each photo on the basis of how <b>pleasant</b> or <b>unpleasant</b> you feel when you see it.</h2> ' +
+    '<h3 style="color:white;">There are no "right" or "wrong" answers for rating the photos.</h3> ' +
+    '<h3 style="color:white;">Just go by how much you like or dislike each one.</h3> '+
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
 
 let instructions_8 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">The third rating you will be asked to make is a rating of how <b>arousing</b> or <b>exciting</b> each picture makes you feel.</p> ' +
-    '<p style="color:white;"><b>"Arousing"</b> refers to how <b>excited</b> or <b>keyed-up</b> the photo makes you feel.<p>'+
-    '<p style="color:white;">Some of the pictures will be <b>highly arousing</b> and some will make you feel more <b>calm</b> or <b>sleepy</b>.</p> '+
+    stimulus: '<h2 style="color:white;">The third rating you will be asked to make is a rating of how <b>arousing</b> or <b>exciting</b> each picture makes you feel.</h2> ' +
+    '<h3 style="color:white;"><b>"Arousing"</b> refers to how <b>excited</b> or <b>keyed-up</b> the photo makes you feel.<h3>'+
+    '<h3 style="color:white;">Some of the pictures will be <b>highly arousing</b> and some will make you feel more <b>calm</b> or <b>sleepy</b>.</h3> '+
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
 
 let instructions_9 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;"><b>Arousal</b></p> '+
+    stimulus: '<h2 style="color:white;"><b>Arousal</b></h2> '+
     '<p style="color:white;">This is the <b>arousal scale</b> that you will use to rate how <b>calm to excited</b> you feel when you see each picture.</p>'+
-    "<img class='center' style='width:600px; height:300px;' src='scale/BlankScaleArousal.png'></img>"+
+    "<img class='center' style='width:538px; height:222px;' src='scale/BlankScaleArousal.png'></img>"+
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
 
 let instructions_10 = {
     type: "html-keyboard-response",
-    stimulus: '<p style="color:white;">Now we will have you rate some pictures for how <b>positive</b>, how <b>negative</b>, and how <b>arousing</b> they make you feel.</p> ' +
+    stimulus: '<h2 style="color:white;">Now we will have you rate some pictures for how <b>positive</b>, how <b>negative</b>, and how <b>arousing</b> they make you feel.</h2> ' +
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
@@ -126,8 +126,8 @@ var response_pleasant = {
     type: "html-keyboard-response",
     stimulus: function(){
               var html= jsPsych.timelineVariable('prompt_pleasant', true) +
-              "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
-              "<img id='pleasant' class='center' src='"+jsPsych.timelineVariable('Likert_pleasant', true)+"'>";
+              "<img class='center' style='height: 300px; width=450px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+              "<img class='center' src='"+jsPsych.timelineVariable('Likert_pleasant', true)+"'>";
               return html;
     },
     choices: [49,50,51,52,53],
@@ -176,7 +176,7 @@ var feedback_pleasant = {
     type: "html-keyboard-response",
     stimulus: function(){
               var html= jsPsych.timelineVariable('prompt_pleasant', true) +
-              "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+              "<img class='center' style='height: 300px; width=450px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
               "<img class='center' src='"+jsPsych.timelineVariable('feedback_pleasant', true)+"'>";
               return html;
     },
@@ -191,7 +191,7 @@ var feedback_pleasant = {
     type: "html-keyboard-response",
     stimulus: function(){
               var html= jsPsych.timelineVariable('prompt_unpleasant', true) +
-              "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+              "<img class='center' style='height: 300px; width=450px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
               "<img class='center' src='"+jsPsych.timelineVariable('Likert_unpleasant', true)+"'>";
               return html;
     },
@@ -233,7 +233,7 @@ var feedback_pleasant = {
     type: "html-keyboard-response",
     stimulus: function(){
               var html= jsPsych.timelineVariable('prompt_unpleasant', true) +
-              "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+              "<img class='center' style='height: 300px; width=450px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
               "<img class='center' src='"+jsPsych.timelineVariable('feedback_unpleasant', true)+"'>";
               return html;
     },
@@ -248,7 +248,7 @@ var feedback_pleasant = {
     type: "html-keyboard-response",
     stimulus: function(){
               var html= jsPsych.timelineVariable('prompt_arousal', true) +
-              "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+              "<img class='center' style='height: 300px; width=450px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
               "<img class='center' src='"+jsPsych.timelineVariable('Likert_arousal', true)+"'>";
               return html;
     },
@@ -290,7 +290,7 @@ var feedback_pleasant = {
     type: "html-keyboard-response",
     stimulus: function(){
               var html= jsPsych.timelineVariable('prompt_arousal', true) +
-              "<img class='center' style='width:500px; height:500px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
+              "<img class='center' style='height: 300px; width=450px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>" +
               "<img class='center' src='"+jsPsych.timelineVariable('feedback_arousal', true)+"'>";
               return html;
     },

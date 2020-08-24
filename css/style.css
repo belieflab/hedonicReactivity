@@ -1,6 +1,10 @@
-img {
+/* img {
   float:center;
-}
+  max-width:300px;
+  max-height:200px;
+  width: auto;
+  height: auto;
+} */
 
 body {
   background-color: rgba(127, 127, 127, 1);
