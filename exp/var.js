@@ -1,5 +1,6 @@
 // define prompts
 
+<<<<<<< HEAD
 let pleasant_Prompt = '<h2 style="color:white;">How pleasant does the picture make you feel?</h2> ';
 let unpleasant_Prompt = '<h2 style="color:white;">How unpleasant does the picture make you feel?</h2> ';
 let arousal_Prompt = '<h2 style="color:white;">How arousing/exciting does the picture make you feel?</h2> ';
@@ -7,6 +8,15 @@ let arousal_Prompt = '<h2 style="color:white;">How arousing/exciting does the pi
 let pleasantPrompt = '<h2 style="color:white; text-align:center;">How pleasant?</h2> ';
 let unpleasantPrompt = '<h2 style="color:white; text-align:center;">How unpleasant?</h2> ';
 let arousalPrompt = '<h2 style="color:white; text-align:center;">How arousing/exciting?</h2> ';
+=======
+let pleasant_Prompt = '<p style="color:white;">How positive?</p> ';
+let unpleasant_Prompt = '<p style="color:white;">How negative?</p> ';
+let arousal_Prompt = '<p style="color:white;">How calm/excited?</p> ';
+
+let pleasantPrompt = '<p style="color:white; text-align:center;">How positive?</p> ';
+let unpleasantPrompt = '<p style="color:white; text-align:center;">How negative?</p> ';
+let arousalPrompt = '<p style="color:white; text-align:center;">How calm/excited?</p> ';
+>>>>>>> c3e434634b7266e55fa038dcf24e75048c7b45ac
 
 // define SAM anchor images
 
