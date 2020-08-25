@@ -85,9 +85,7 @@
 
 <script>$("button.loadMain").click(function(){
 
-    // $.getScript("exp/var.js");
-    $.getScript("exp/timeline.js");
-    // $.getScript("exp/main.js");
+    $.getScript("exp/main.js");
 
     // $.load("include/consent.php");
   }); </script>
