@@ -11,7 +11,7 @@ file_put_contents($name, $data);
 <html>
   <head>
     <title>Hedonic Reactivity</title>
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <script src="db/validate.js"></script>
     <script src="jsPsych/jspsych.js"></script>
     <script src="jsPsych/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jsPsych/plugins/jspsych-survey-likert.js"></script>
@@ -21,14 +21,12 @@ file_put_contents($name, $data);
     <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  -->
   </head>
   <body style="background-color:black;">  
-    <?php include "include/consent.php"?>
+    <?php include_once "include/intake.php"?>
   </body>
   <footer>
     <script src="exp/conf.js"></script>
     <script src="exp/fn.js"></script>
     <script src="exp/var.js"></script>
-    <script src="exp/timeline.js"></script>
-    <script src="exp/main.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-git.js"></script>
   </footer>
 </html>
