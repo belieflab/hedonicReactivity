@@ -3,7 +3,7 @@
 //******************************************/
 
 /* enable subjectID prompt */
-workerID = prompt("Enter subject Id")
+// workerID = prompt("Enter subject Id")
 
 // IAPS photos
 const negative = ['2205', '2751', '2799', '3195', '3230', '9332', '9445', '9910']
