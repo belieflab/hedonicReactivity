@@ -100,25 +100,29 @@ var fixation = {
     stimulus: '<div style="color:white; font-size:60px;">+</div>',
     choices: jsPsych.NO_KEYS,
     trial_duration: 1000,
+    choices: jsPsych.NO_KEYS,
     data: {test_part: 'fixation'}
   }
 
 var prompt_pleasant = {
     type: "html-keyboard-response",
-    trial_duration: 2000,
+    trial_duration: 3000,
+    choices: jsPsych.NO_KEYS,
     prompt: pleasant_Prompt,
   };
 
 
 var prompt_unpleasant = {
     type: "html-keyboard-response",
-    trial_duration: 2000,
+    trial_duration: 3000,
+    choices: jsPsych.NO_KEYS,
     prompt: unpleasant_Prompt,
   };
 
 var prompt_arousal = {
     type: "html-keyboard-response",
-    trial_duration: 2000,
+    trial_duration: 3000,
+    choices: jsPsych.NO_KEYS,
     prompt: arousal_Prompt,
   };
 
