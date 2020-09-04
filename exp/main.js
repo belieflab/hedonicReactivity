@@ -110,7 +110,7 @@ var prompt_pleasant = {
     trial_duration: 3000,
     choices: jsPsych.NO_KEYS,
     prompt: pleasant_Prompt,
-    data: {test_part: 'pleasant'}
+    data: jsPsych.timelineVariable('data'),
   };
 
 
@@ -119,7 +119,7 @@ var prompt_unpleasant = {
     trial_duration: 3000,
     choices: jsPsych.NO_KEYS,
     prompt: unpleasant_Prompt,
-    data: {test_part: 'unpleasant'}
+    data: jsPsych.timelineVariable('data'),
   };
 
 var prompt_arousal = {
@@ -127,7 +127,7 @@ var prompt_arousal = {
     trial_duration: 3000,
     choices: jsPsych.NO_KEYS,
     prompt: arousal_Prompt,
-    data: {test_part: 'arousal'}
+    data: jsPsych.timelineVariable('data'),
   };
 
 
@@ -141,7 +141,7 @@ var response_pleasant = {
     },
     choices: [49,50,51,52,53],
     response_ends_trial: true,
-    data: jsPsych.data.get().select('responses'),
+    data: {test_part: 'pleasant'},
     on_finish: function(data) {
         switch(data.key_press){
         case 49: 
@@ -149,35 +149,35 @@ var response_pleasant = {
                 pleasantResponse.pop();
             } 
                 pleasantResponse.push("scale/PleasantScale1.jpg")
-                data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+                data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         case 50: 
             while(pleasantResponse.length > 0) {
             pleasantResponse.pop();
             } 
             pleasantResponse.push("scale/PleasantScale2.jpg")
-            data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         case 51:
             while(pleasantResponse.length > 0) {
             pleasantResponse.pop();
             } 
             pleasantResponse.push("scale/PleasantScale3.jpg")
-            data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         case 52:
             while(pleasantResponse.length > 0) {
             pleasantResponse.pop();
             } 
             pleasantResponse.push("scale/PleasantScale4.jpg")
-            data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         case 53:
             while(pleasantResponse.length > 0) {
             pleasantResponse.pop();
             } 
             pleasantResponse.push("scale/PleasantScale5.jpg")
-            data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         default:
         }
@@ -197,8 +197,6 @@ var feedback_pleasant = {
     // choices: ['1','2','3','4','5'],
     response_ends_trial: false,
     trial_duration: 2000,
-    data: participantResponse = jsPsych.data.get().select('responses'),
-    
   };
 
   var response_unpleasant = {
@@ -211,38 +209,38 @@ var feedback_pleasant = {
     },
     
     choices: [49,50,51,52,53],
-    data: jsPsych.data.get().select('responses'),
+    data: {test_part: 'unpleasant'},
     on_finish: function(data){
       if (data.key_press == 49){
         while(unpleasantResponse.length > 0) {
           unpleasantResponse.pop();
         } 
         unpleasantResponse.push("scale/UnpleasantScale1.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.unpleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     } else if (data.key_press == 50){
         while(unpleasantResponse.length > 0) {
           unpleasantResponse.pop();
         } 
         unpleasantResponse.push("scale/UnpleasantScale2.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.unpleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     } else if (data.key_press == 51){
         while(unpleasantResponse.length > 0) {
           unpleasantResponse.pop();
         } 
         unpleasantResponse.push("scale/UnpleasantScale3.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.unpleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     } else if (data.key_press == 52){
         while(unpleasantResponse.length > 0) {
           unpleasantResponse.pop();
         } 
         unpleasantResponse.push("scale/UnpleasantScale4.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.unpleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     } else if (data.key_press == 53){
         while(unpleasantResponse.length > 0) {
           unpleasantResponse.pop();
         } 
         unpleasantResponse.push("scale/UnpleasantScale5.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.unpleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     }
       
     },
@@ -259,7 +257,7 @@ var feedback_pleasant = {
     // choices: ['1','2','3','4','5'],
     response_ends_trial: false,
     trial_duration: 2000,
-    data: participantResponse = jsPsych.data.get().select('responses'),
+    // data: participantResponse = jsPsych.data.get().select('responses'),
     
   };
 
@@ -273,38 +271,38 @@ var feedback_pleasant = {
     },
     
     choices: [49,50,51,52,53],
-    data: jsPsych.data.get().select('responses'),
+    data: {test_part: 'arousal'},
     on_finish: function(data){
       if (data.key_press == 49){
         while(arousalResponse.length > 0) {
           arousalResponse.pop();
         } 
         arousalResponse.push("scale/ArousalScale1.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.arousal_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     } else if (data.key_press == 50){
         while(arousalResponse.length > 0) {
           arousalResponse.pop();
         } 
         arousalResponse.push("scale/ArousalScale2.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.arousal_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     } else if (data.key_press == 51){
         while(arousalResponse.length > 0) {
           arousalResponse.pop();
         } 
         arousalResponse.push("scale/ArousalScale3.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.arousal_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     } else if (data.key_press == 52){
         while(arousalResponse.length > 0) {
           arousalResponse.pop();
         } 
         arousalResponse.push("scale/ArousalScale4.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.arousal_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     } else if (data.key_press == 53){
         while(arousalResponse.length > 0) {
           arousalResponse.pop();
         } 
         arousalResponse.push("scale/ArousalScale5.jpg")
-        data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+        data.arousal_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     }
 
     },
@@ -321,7 +319,7 @@ var feedback_pleasant = {
     // choices: ['1','2','3','4','5'],
     response_ends_trial: false,
     trial_duration: 2000,
-    data: participantResponse = jsPsych.data.get().select('responses'),
+    // data: participantResponse = jsPsych.data.get().select('responses'),
     
   };
 
