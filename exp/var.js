@@ -1,3 +1,6 @@
+// start indexing 24 trials for consolidated output
+let indexIterator = 1;
+
 // define prompts
 
 let pleasant_Prompt = '<h2 style="color:white;">How positive?</h2> ';

@@ -102,7 +102,7 @@ var fixation = {
     choices: jsPsych.NO_KEYS,
     trial_duration: 1000,
     choices: jsPsych.NO_KEYS,
-    data: {test_part: 'fixation'}
+    // data: {test_part: 'fixation'}
   }
 
 var prompt_pleasant = {
@@ -111,6 +111,9 @@ var prompt_pleasant = {
     choices: jsPsych.NO_KEYS,
     prompt: pleasant_Prompt,
     data: jsPsych.timelineVariable('data'),
+    on_finish: function(data){
+      data.trial = indexIterator;
+    },
   };
 
 
@@ -120,6 +123,9 @@ var prompt_unpleasant = {
     choices: jsPsych.NO_KEYS,
     prompt: unpleasant_Prompt,
     data: jsPsych.timelineVariable('data'),
+    on_finish: function(data){
+      data.trial = indexIterator;
+    },
   };
 
 var prompt_arousal = {
@@ -128,6 +134,10 @@ var prompt_arousal = {
     choices: jsPsych.NO_KEYS,
     prompt: arousal_Prompt,
     data: jsPsych.timelineVariable('data'),
+    on_finish: function(data){
+      data.trial = indexIterator;
+      indexIterator++;
+    },
   };
 
 
