@@ -105,40 +105,27 @@ var fixation = {
     // data: {test_part: 'fixation'}
   }
 
-var prompt_pleasant = {
-    type: "html-keyboard-response",
-    trial_duration: 500,
-    choices: jsPsych.NO_KEYS,
-    prompt: '',
-    data: jsPsych.timelineVariable('data'),
-    on_finish: function(data){
-      data.trial = indexIterator;
-    },
-  };
+// var prompt_pleasant = {
+//     type: "html-keyboard-response",
+//     trial_duration: 2000,
+//     choices: jsPsych.NO_KEYS,
+//     prompt: pleasantPrompt,
+//   };
 
 
-var prompt_unpleasant = {
-    type: "html-keyboard-response",
-    trial_duration: 500,
-    choices: jsPsych.NO_KEYS,
-    prompt: '',
-    data: jsPsych.timelineVariable('data'),
-    on_finish: function(data){
-      data.trial = indexIterator;
-    },
-  };
+// var prompt_unpleasant = {
+//     type: "html-keyboard-response",
+//     trial_duration: 2000,
+//     choices: jsPsych.NO_KEYS,
+//     prompt: unpleasantPrompt,
+//   };
 
-var prompt_arousal = {
-    type: "html-keyboard-response",
-    trial_duration: 500,
-    choices: jsPsych.NO_KEYS,
-    prompt: '',
-    data: jsPsych.timelineVariable('data'),
-    on_finish: function(data){
-      data.trial = indexIterator;
-      indexIterator++;
-    },
-  };
+// var prompt_arousal = {
+//     type: "html-keyboard-response",
+//     trial_duration: 2000,
+//     choices: jsPsych.NO_KEYS,
+//     prompt: arousalPrompt,
+//   };
 
 
 var response_pleasant = {

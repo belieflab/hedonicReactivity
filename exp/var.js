@@ -2,11 +2,6 @@
 let indexIterator = 1;
 
 // define prompts
-
-// let pleasant_Prompt = '<h2 style="color:white;">How positive?</h2> ';
-// let unpleasant_Prompt = '<h2 style="color:white;">How negative?</h2> ';
-// let arousal_Prompt = '<h2 style="color:white;">How calm---excited?</h2> ';
-
 let pleasantPrompt = '<h2 style="color:white; text-align:center;">How positive?</h2> ';
 let unpleasantPrompt = '<h2 style="color:white; text-align:center;">How negative?</h2> ';
 let arousalPrompt = '<h2 style="color:white; text-align:center;">How calm---excited?</h2> ';
