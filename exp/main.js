@@ -285,7 +285,7 @@ var feedback_pleasant = {
     on_finish: function(data){
       data.trial = indexIterator;
       indexIterator++;
-      data.test_part = "unpleasant";
+      data.test_part = "arousal";
       if (data.key_press == 49){
         while(arousalResponse.length > 0) {
           arousalResponse.pop();
