@@ -148,35 +148,40 @@ var response_pleasant = {
                 pleasantResponse.pop();
             } 
                 pleasantResponse.push("scale/PleasantScale1.jpg")
-                data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+                // data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+                data.rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         case 50: 
             while(pleasantResponse.length > 0) {
             pleasantResponse.pop();
             } 
             pleasantResponse.push("scale/PleasantScale2.jpg")
-            data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            // data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            data.rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         case 51:
             while(pleasantResponse.length > 0) {
             pleasantResponse.pop();
             } 
             pleasantResponse.push("scale/PleasantScale3.jpg")
-            data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            // data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            data.rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         case 52:
             while(pleasantResponse.length > 0) {
             pleasantResponse.pop();
             } 
             pleasantResponse.push("scale/PleasantScale4.jpg")
-            data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            // data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            data.rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         case 53:
             while(pleasantResponse.length > 0) {
             pleasantResponse.pop();
             } 
             pleasantResponse.push("scale/PleasantScale5.jpg")
-            data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            // data.pleasant_rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+            data.rating = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
             break;
         default:
         }
