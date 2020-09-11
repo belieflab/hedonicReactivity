@@ -3,13 +3,13 @@ let indexIterator = 1;
 
 // define prompts
 
-let pleasant_Prompt = '<h2 style="color:white;">How positive?</h2> ';
-let unpleasant_Prompt = '<h2 style="color:white;">How negative?</h2> ';
-let arousal_Prompt = '<h2 style="color:white;">How calm/excited?</h2> ';
+// let pleasant_Prompt = '<h2 style="color:white;">How positive?</h2> ';
+// let unpleasant_Prompt = '<h2 style="color:white;">How negative?</h2> ';
+// let arousal_Prompt = '<h2 style="color:white;">How calm---excited?</h2> ';
 
 let pleasantPrompt = '<h2 style="color:white; text-align:center;">How positive?</h2> ';
 let unpleasantPrompt = '<h2 style="color:white; text-align:center;">How negative?</h2> ';
-let arousalPrompt = '<h2 style="color:white; text-align:center;">How calm/excited?</h2> ';
+let arousalPrompt = '<h2 style="color:white; text-align:center;">How calm---excited?</h2> ';
 
 // define SAM anchor images
 
@@ -79,7 +79,7 @@ let scale_pleasant = [
     "<div style='color:white;'>2</div>", 
     "<div style='color:white;'>3 <br/> Somewhat pleasant</div>", 
     "<div style='color:white;'>4</div>", 
-    "<div style='color:white;'>5 <br/> Extremely plesant</div>"
+    "<div style='color:white;'>5 <br/> Extremely pleasant</div>"
 ];
 
 let scale_unpleasant = [
@@ -87,7 +87,7 @@ let scale_unpleasant = [
       "<div style='color:white;'>2</div>", 
       "<div style='color:white;'>3 <br/> Somewhat unpleasant</div>", 
       "<div style='color:white;'>4</div>", 
-      "<div style='color:white;'>5 <br/> Extremely unplesant</div>"
+      "<div style='color:white;'>5 <br/> Extremely unpleasant</div>"
 ];
 
 let scale_arousal = [

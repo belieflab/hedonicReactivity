@@ -107,9 +107,9 @@ var fixation = {
 
 var prompt_pleasant = {
     type: "html-keyboard-response",
-    trial_duration: 3000,
+    trial_duration: 500,
     choices: jsPsych.NO_KEYS,
-    prompt: pleasant_Prompt,
+    prompt: '',
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
       data.trial = indexIterator;
@@ -119,9 +119,9 @@ var prompt_pleasant = {
 
 var prompt_unpleasant = {
     type: "html-keyboard-response",
-    trial_duration: 3000,
+    trial_duration: 500,
     choices: jsPsych.NO_KEYS,
-    prompt: unpleasant_Prompt,
+    prompt: '',
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
       data.trial = indexIterator;
@@ -130,9 +130,9 @@ var prompt_unpleasant = {
 
 var prompt_arousal = {
     type: "html-keyboard-response",
-    trial_duration: 3000,
+    trial_duration: 500,
     choices: jsPsych.NO_KEYS,
-    prompt: arousal_Prompt,
+    prompt: '',
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
       data.trial = indexIterator;
@@ -151,8 +151,10 @@ var response_pleasant = {
     },
     choices: [49,50,51,52,53],
     response_ends_trial: true,
-    data: {test_part: 'pleasant'},
+    data: jsPsych.timelineVariable('data'),
     on_finish: function(data) {
+        data.test_part = "pleasant";
+        data.trial = indexIterator;
         switch(data.key_press){
         case 49: 
             while(pleasantResponse.length > 0) { //workaround to make sure there is no problems with image preloading of feedback
@@ -219,8 +221,10 @@ var feedback_pleasant = {
     },
     
     choices: [49,50,51,52,53],
-    data: {test_part: 'unpleasant'},
+    data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
+      data.trial = indexIterator;
+      data.test_part = "unpleasant";
       if (data.key_press == 49){
         while(unpleasantResponse.length > 0) {
           unpleasantResponse.pop();
@@ -281,8 +285,11 @@ var feedback_pleasant = {
     },
     
     choices: [49,50,51,52,53],
-    data: {test_part: 'arousal'},
+    data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
+      data.trial = indexIterator;
+      indexIterator++;
+      data.test_part = "unpleasant";
       if (data.key_press == 49){
         while(arousalResponse.length > 0) {
           arousalResponse.pop();
@@ -336,7 +343,7 @@ var feedback_pleasant = {
 let debriefing = {
     type: "html-keyboard-response",
     stimulus: "<p style='color:white;'>You have completed this task. Please wait for the experimenter to continue.</p>"+
-    "<p style='color:white;'>Data Saving...Do not close this window until the text dissapears.”</p>",
+    "<p style='color:white;'>Data Saving...do not close this window until the text dissapears.</p>",
     choices: jsPsych.NO_KEYS,
     trial_duration: 10000,
 };
@@ -347,7 +354,7 @@ let instructions = {
   }
 
 var procedure = {
-    timeline: [fixation, prompt_pleasant, response_pleasant, feedback_pleasant, prompt_unpleasant, response_unpleasant, feedback_unpleasant, prompt_arousal, response_arousal, feedback_arousal],
+    timeline: [fixation, /*prompt_pleasant,*/ response_pleasant, feedback_pleasant, /*prompt_unpleasant,*/ response_unpleasant, feedback_unpleasant, /*prompt_arousal,*/ response_arousal, feedback_arousal],
     timeline_variables: full_stim_shuffle,
     //randomize_order: false
   }
