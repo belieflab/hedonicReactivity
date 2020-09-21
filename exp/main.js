@@ -91,7 +91,7 @@ let instructions_9 = {
 let instructions_10 = {
     type: "html-keyboard-response",
     stimulus: '<h2 style="color:white;">Now we will have you rate some pictures for how <b>positive</b>, how <b>negative</b>, and how <b>arousing</b> they make you feel.</h2> ' +
-    '<h3 style="color:white;">Please press the number on top of your keybaord that corresponds to your choice.</h3> ' +
+    '<h3 style="color:white;">Please press the number on top of your keyboard that corresponds to your choice.</h3> ' +
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
