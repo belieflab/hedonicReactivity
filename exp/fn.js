@@ -10,6 +10,6 @@ function startExperiment(){
         timeline: timeline,
         show_progress_bar: true,
         preload_images: [positive_stimuli, negative_stimuli, neutral_stimuli, pleasantLikert, unpleasantLikert, arousalLikert, pleasantResponse, unpleasantResponse, arousalResponse],
-        on_finish: function(){ saveData("hedonic-reactivity_" + workerID, jsPsych.data.get().csv()); }
+        on_finish: function(){ saveData("hedonic-reactivity_" + workerId, jsPsych.data.get().csv()); }
     });
 }

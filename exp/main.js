@@ -140,6 +140,12 @@ var response_pleasant = {
     response_ends_trial: true,
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data) {
+        data.subjectkey = 'GUID';
+        data.src_subject_id = workerId;
+        data.site = siteNumber;
+        data.interview_date = today;
+        data.interview_age = ageAtAssessment;
+        data.sex = sexAtBirth;
         data.test_part = "pleasant";
         data.trial = indexIterator;
         switch(data.key_press){
@@ -215,6 +221,12 @@ var feedback_pleasant = {
     choices: [49,50,51,52,53],
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
+      data.subjectkey = 'GUID';
+      data.src_subject_id = workerId;
+      data.site = siteNumber;
+      data.interview_date = today;
+      data.interview_age = ageAtAssessment;
+      data.sex = sexAtBirth;
       data.trial = indexIterator;
       data.test_part = "unpleasant";
       if (data.key_press == 49){
@@ -283,6 +295,12 @@ var feedback_pleasant = {
     choices: [49,50,51,52,53],
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
+      data.subjectkey = 'GUID';
+      data.src_subject_id = workerId;
+      data.site = siteNumber;
+      data.interview_date = today;
+      data.interview_age = ageAtAssessment;
+      data.sex = sexAtBirth;
       data.trial = indexIterator;
       indexIterator++;
       data.test_part = "arousal";
