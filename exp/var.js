@@ -54,15 +54,15 @@ for (let i = 0; i < negative.length ; i++){
 let full_stim = [];
 
 for (let i = 0; i < positive.length ; i++){
-    full_stim.push({stimulus: positive_stimuli[i], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, feedback_pleasant: pleasantResponse, feedback_unpleasant: unpleasantResponse, feedback_arousal: arousalResponse, data: {iaps_image: positive[i], condition: 'positive', descriptor: positiveDescriptor[i]}})
+    full_stim.push({stimulus: positive_stimuli[i], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, feedback_pleasant: pleasantResponse, feedback_unpleasant: unpleasantResponse, feedback_arousal: arousalResponse, data: {iaps_image: positive[i], condition: 'positive', iaps_descriptor: positiveDescriptor[i]}})
 };
 
 for (let i = 0; i < neutral.length ; i++){
-    full_stim.push({stimulus: neutral_stimuli[i], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, feedback_pleasant: pleasantResponse, feedback_unpleasant: unpleasantResponse, feedback_arousal: arousalResponse, data: {iaps_image: neutral[i], condition: 'neutral', descriptor: neutralDescriptor[i]}})
+    full_stim.push({stimulus: neutral_stimuli[i], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, feedback_pleasant: pleasantResponse, feedback_unpleasant: unpleasantResponse, feedback_arousal: arousalResponse, data: {iaps_image: neutral[i], condition: 'neutral', iaps_descriptor: neutralDescriptor[i]}})
 };
 
 for (let i = 0; i < negative.length ; i++){
-    full_stim.push({stimulus: negative_stimuli[i], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, feedback_pleasant: pleasantResponse, feedback_unpleasant: unpleasantResponse, feedback_arousal: arousalResponse, data: {iaps_image: negative[i], condition: 'negative', descriptor: negativeDescriptor[i]}})
+    full_stim.push({stimulus: negative_stimuli[i], prompt_pleasant: pleasantPrompt, Likert_pleasant:pleasantLikert, prompt_unpleasant: unpleasantPrompt, Likert_unpleasant:unpleasantLikert, prompt_arousal: arousalPrompt, Likert_arousal: arousalLikert, feedback_pleasant: pleasantResponse, feedback_unpleasant: unpleasantResponse, feedback_arousal: arousalResponse, data: {iaps_image: negative[i], condition: 'negative', iaps_descriptor: negativeDescriptor[i]}})
 };
 
 let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled array no repeats
