@@ -11,7 +11,7 @@ file_put_contents($name, $data);
 <html>
   <head>
     <title>Hedonic Reactivity</title>
-    <script src="db/validate.js"></script>
+    <script src="db/submit.js"></script>
     <script src="jsPsych/jspsych.js"></script>
     <script src="jsPsych/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jsPsych/plugins/jspsych-survey-likert.js"></script>
