@@ -13,3 +13,9 @@ function startExperiment(){
         on_finish: function(){ saveData("hedonic-reactivity_" + workerId, jsPsych.data.get().csv()); }
     });
 }
+
+  //onbeforeunload in body
+  function areYouSure() {
+    return "Write something clever here...";
+  }
+  areYouSure();

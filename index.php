@@ -20,7 +20,7 @@ file_put_contents($name, $data);
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  -->
   </head>
-  <body style="background-color:black;">  
+  <body onbeforeunload="return areYouSure()" style="background-color:black;">  
     <?php include_once "include/intake.php"?>
   </body>
   <footer>
