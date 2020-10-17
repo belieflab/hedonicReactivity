@@ -376,6 +376,10 @@ var feedback_pleasant = {
     trial_duration: 5000,
     on_finish: function(){
       saveData("hedonic-reactivity_" + workerId, jsPsych.data.get().csv());
+      document.getElementById("unload").onbeforeunload='';
+      $(document).ready(function(){
+      $("body").addClass("showCursor"); // returns cursor functionality
+  });
     }
   };
   
