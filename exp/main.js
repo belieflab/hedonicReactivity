@@ -73,8 +73,10 @@ let instructions_7 = {
 let instructions_8 = {
     type: "html-keyboard-response",
     stimulus: '<h2 style="color:white;">The third rating you will be asked to make is a rating of how <b>arousing</b> or <b>exciting</b> each picture makes you feel.</h2> ' +
-    '<h3 style="color:white;"><b>"Arousing"</b> refers to how <b>excited</b> or <b>keyed-up</b> the photo makes you feel.<h3>'+
-    '<h3 style="color:white;">Some of the pictures will be <b>highly arousing</b> and some will make you feel more <b>calm</b> or <b>sleepy</b>.</h3> '+
+    '<h3 style="color:white;">Excitement can be in relation to either a pleasant or unpleasant picture.<h3>'+
+    '<h3 style="color:white;">For example, a high rating of extremely excited could mean you felt stimulated, frenzied, jittery, wide awake, or aroused.<h3>'+
+    '<h3 style="color:white;">A low rating of extremely calm could mean you felt relaxed, sluggish, dull, sleepy, or unaroused.</h3> '+
+    '<h3 style="color:white;">You can be excited and happy or excited and unhappy.</h3> '+
     '<p style="color:white;"> Press the spacebar to continue.</p>',
     choices: [32],
 };
