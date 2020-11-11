@@ -300,6 +300,7 @@ var feedback_pleasant = {
       data.interview_date = today;
       data.interview_age = ageAtAssessment;
       data.sex = sexAtBirth;
+      data.handedness = handedness;
       data.trial = indexIterator;
       indexIterator++;
       data.test_part = "arousal";

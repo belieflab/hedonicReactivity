@@ -5,6 +5,8 @@ let ageAtAssessment;
 
 let sexAtBirth;
 
+let handedness;
+
 let today = new Date();
 let dd = String(today.getDate()).padStart(2, '0');
 let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -47,7 +49,15 @@ function ageFinder() {
 
 function submitIntake() {
     let subjectID = document.getElementById("subjectid").value;
+    let rightHandedness = document.getElementById("rightHanded").checked;
+    let leftHandedness = document.getElementById("leftHanded").checked;
     let siteID = document.getElementById("siteid");
+
+    if (rightHandedness === true) {
+        handedness = "right";
+    } else if (leftHandedness === true) {
+        handedness = "left";
+    }
 
     
     const zeroPad = (num, places) => String(num).padStart(places, '0');
