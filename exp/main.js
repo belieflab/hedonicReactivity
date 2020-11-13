@@ -393,7 +393,7 @@ var feedback_pleasant = {
     "<p style='color:white;'>To leave feedback on this task, please click the following link:</p>"+
     "<p style='color:white;'><a href="+feedbackLink+">Leave Task Feedback!</a></p>"+
         // "<p>Please wait for the experimenter to continue.</p>"+
-    "<p style='color:white;'>You may now close the expriment window at anytime.</p>",
+    "<p style='color:white;'><i>You may now close the expriment window at anytime.</i></p>",
     choices: jsPsych.NO_KEYS,
   };
 
