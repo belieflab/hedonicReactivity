@@ -395,7 +395,6 @@ var feedback_pleasant = {
         // "<p>Please wait for the experimenter to continue.</p>"+
     "<p style='color:white;'>You may now close the expriment window at anytime.</p>",
     choices: jsPsych.NO_KEYS,
-    trial_duration: 60000,
   };
 
 
