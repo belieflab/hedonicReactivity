@@ -142,7 +142,7 @@ var response_pleasant = {
     response_ends_trial: true,
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data) {
-        data.subjectkey = 'GUID';
+        data.subjectkey = GUID;
         data.src_subject_id = workerId;
         data.interview_date = today;
         data.interview_age = ageAtAssessment;
@@ -222,7 +222,7 @@ var feedback_pleasant = {
     choices: [49,50,51,52,53],
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
-      data.subjectkey = 'GUID';
+      data.subjectkey = GUID;
       data.src_subject_id = workerId;
       data.interview_date = today;
       data.interview_age = ageAtAssessment;
@@ -295,7 +295,7 @@ var feedback_pleasant = {
     choices: [49,50,51,52,53],
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
-      data.subjectkey = 'GUID';
+      data.subjectkey = GUID;
       data.src_subject_id = workerId;
       data.interview_date = today;
       data.interview_age = ageAtAssessment;
