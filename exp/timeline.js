@@ -148,7 +148,7 @@ var response_pleasant = {
         data.interview_age = ageAtAssessment;
         data.sex = sexAtBirth;
         data.test_part = "pleasant";
-        data.trial = indexIterator;
+        data.index = indexIterator;
         switch(data.key_press){
         case 49:
             while(pleasantResponse.length > 0) { //workaround to make sure there is no problems with image preloading of feedback
@@ -227,7 +227,7 @@ var feedback_pleasant = {
       data.interview_date = today;
       data.interview_age = ageAtAssessment;
       data.sex = sexAtBirth;
-      data.trial = indexIterator;
+      data.index = indexIterator;
       data.test_part = "unpleasant";
       if (data.key_press == 49){
         while(unpleasantResponse.length > 0) {
@@ -301,7 +301,7 @@ var feedback_pleasant = {
       data.interview_age = ageAtAssessment;
       data.sex = sexAtBirth;
       data.handedness = handedness;
-      data.trial = indexIterator;
+      data.index = indexIterator;
       indexIterator++;
       data.test_part = "arousal";
       if (data.key_press == 49){
