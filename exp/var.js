@@ -33,19 +33,19 @@ for (let i = 1; i <= 5 ; i++) {
 
 let positive_stimuli = [];
 for (let i = 0; i < positive.length ; i++){
-    positive_stimuli.push("stim/" + positive[i] + ".bmp");
+    positive_stimuli.push("stim/" + positive[i] + ".png");
     // console.log(original_stimuli[i]);
 };       
 
 let neutral_stimuli = [];
 for (let i = 0; i < neutral.length ; i++){
-    neutral_stimuli.push("stim/" + neutral[i] + ".bmp");
+    neutral_stimuli.push("stim/" + neutral[i] + ".png");
     // console.log(original_stimuli[i]);
 };
 
 let negative_stimuli = [];
 for (let i = 0; i < negative.length ; i++){
-    negative_stimuli.push("stim/" + negative[i] + ".bmp");
+    negative_stimuli.push("stim/" + negative[i] + ".png");
     // console.log(inverted_stimuli[i]);
 };
 
