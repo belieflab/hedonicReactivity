@@ -147,6 +147,8 @@ var response_pleasant = {
         data.interview_date = today;
         data.interview_age = ageAtAssessment;
         data.sex = sexAtBirth;
+        data.phenotype = groupStatus;
+        data.handedness = handedness;
         data.test_part = "pleasant";
         data.index = indexIterator;
         switch(data.key_press){
@@ -227,6 +229,8 @@ var feedback_pleasant = {
       data.interview_date = today;
       data.interview_age = ageAtAssessment;
       data.sex = sexAtBirth;
+      data.phenotype = groupStatus;
+      data.handedness = handedness;
       data.index = indexIterator;
       data.test_part = "unpleasant";
       if (data.key_press == 49){
@@ -300,6 +304,7 @@ var feedback_pleasant = {
       data.interview_date = today;
       data.interview_age = ageAtAssessment;
       data.sex = sexAtBirth;
+      data.phenotype = groupStatus;
       data.handedness = handedness;
       data.index = indexIterator;
       indexIterator++;
