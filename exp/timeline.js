@@ -220,7 +220,7 @@ var feedback_pleasant = {
               "<img class='center' src='"+jsPsych.timelineVariable('Likert_unpleasant', true)+"'>";
               return html;
     },
-    
+
     choices: [49,50,51,52,53],
     data: jsPsych.timelineVariable('data'),
     on_finish: function(data){
