@@ -11,7 +11,7 @@ if (file_exists($_SERVER["DOCUMENT_ROOT"] . '/config.php')) {
   $sexAtBirth = $_GET["sex"];
   $institutionAlias = $_GET["site"];
   $ageInMonths = $_GET["interview_age"];
-  $groupStatus = my_decrypt($_GET["phenotype"],$key);
+  $groupStatus = openssl_decrypt($_GET["phenotype"],$encryptionMethod, $secretHash);
 
   } else {
     $db_connection_status = null;
